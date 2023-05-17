@@ -8,15 +8,43 @@ crc::crc(QWidget *parent)
     , ui(new Ui::crc)
 {
     ui->setupUi(this);
+    ui->label_tips->setStyleSheet("color: red");
     QSizePolicy size_policy = ui->label_tips->sizePolicy();
     //set label tips retain position when hidden.
     size_policy.setRetainSizeWhenHidden(true);
+    ui->label_tips->setSizePolicy(size_policy);
     ui->label_tips->hide();
 }
 
 crc::~crc()
 {
     delete ui;
+}
+
+bool crc::empty_check()
+{
+    if(ui->textEdit->toPlainText().isEmpty()) {
+        ui->label_tips->setText(QString("请输入需要校验的数据"));
+        return true;
+    }
+    if(ui->lineEdit_poly->text().isEmpty()) {
+        ui->label_tips->setText(QString("请输入多项式的值（十六进制）"));
+        return true;
+    }
+    if(ui->lineEdit_init->text().isEmpty()) {
+        ui->label_tips->setText(QString("请输入初始值（十六进制）"));
+        return true;
+    }
+    if(ui->lineEdit_init->text().isEmpty()) {
+        ui->label_tips->setText(QString("请输入结果异或值（十六进制）"));
+        return true;
+    }
+    return false;
+}
+
+bool crc::specification_check()
+{
+    QString input_data = ui->textEdit->toPlainText();
 }
 
 
@@ -250,3 +278,26 @@ void crc::on_comboBox_currentIndexChanged(int index)
     }
 }
 
+void crc::on_pushButton_clear_clicked()
+{
+    ui->textEdit->clear();
+    ui->lineEdit_result_bin->clear();
+    ui->lineEdit_result_hex->clear();
+}
+
+void crc::on_pushButton_calculate_clicked()
+{
+    //input empty check
+    if (empty_check()) {
+        ui->label_tips->setHidden(false);
+        return ;
+    }
+
+    //input specification check
+    if (specification_check()) {
+        ui->label_tips->setHidden(false);
+        return ;
+    }
+
+    ui->label_tips->hide();
+}

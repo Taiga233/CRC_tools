@@ -20,8 +20,15 @@ public:
     crc(QWidget *parent = NULL);
     ~crc();
 
+    bool empty_check();
+    bool specification_check();
+
 private slots:
     void on_comboBox_currentIndexChanged(int index);
+
+    void on_pushButton_clear_clicked();
+
+    void on_pushButton_calculate_clicked();
 
 private:
     Ui::crc *ui;

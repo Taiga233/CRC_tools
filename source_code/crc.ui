@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1274</width>
-    <height>719</height>
+    <height>722</height>
    </rect>
   </property>
   <property name="font">
@@ -262,7 +262,7 @@
           </font>
          </property>
          <property name="text">
-          <string>多项式 POLY(Hex):</string>
+          <string>多项式简写 POLY(Hex):</string>
          </property>
         </widget>
        </item>
@@ -350,14 +350,14 @@
        <item>
         <widget class="QLabel" name="label_9">
          <property name="text">
-          <string>例如：ABCD</string>
+          <string>例如：FF</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_10">
          <property name="text">
-          <string>例如：FFFF</string>
+          <string>例如：ABCD</string>
          </property>
         </widget>
        </item>

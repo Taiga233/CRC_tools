@@ -73,7 +73,7 @@ public:
     {
         if (crc->objectName().isEmpty())
             crc->setObjectName(QStringLiteral("crc"));
-        crc->resize(1274, 719);
+        crc->resize(1274, 722);
         QFont font;
         font.setFamily(QStringLiteral("Consolas"));
         font.setPointSize(16);
