@@ -8,6 +8,10 @@ crc::crc(QWidget *parent)
     , ui(new Ui::crc)
 {
     ui->setupUi(this);
+    QSizePolicy size_policy = ui->label_tips->sizePolicy();
+    //set label tips retain position when hidden.
+    size_policy.setRetainSizeWhenHidden(true);
+    ui->label_tips->hide();
 }
 
 crc::~crc()

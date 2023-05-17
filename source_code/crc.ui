@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>988</width>
-    <height>435</height>
+    <width>1274</width>
+    <height>719</height>
    </rect>
   </property>
   <property name="font">
@@ -26,6 +26,7 @@
       <font>
        <family>楷体</family>
        <pointsize>20</pointsize>
+       <weight>75</weight>
        <bold>true</bold>
       </font>
      </property>
@@ -58,6 +59,7 @@
         <font>
          <family>宋体</family>
          <pointsize>16</pointsize>
+         <weight>75</weight>
          <bold>true</bold>
         </font>
        </property>
@@ -95,6 +97,7 @@
         <font>
          <family>楷体</family>
          <pointsize>16</pointsize>
+         <weight>50</weight>
          <bold>false</bold>
         </font>
        </property>
@@ -238,17 +241,13 @@
        <property name="labelAlignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
        </property>
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_4">
-         <property name="font">
-          <font>
-           <family>楷体</family>
-           <pointsize>16</pointsize>
-           <bold>false</bold>
-          </font>
+       <item row="0" column="1">
+        <widget class="QSpinBox" name="spinBox_width">
+         <property name="minimum">
+          <number>1</number>
          </property>
-         <property name="text">
-          <string>宽度 WIDTH：</string>
+         <property name="maximum">
+          <number>32</number>
          </property>
         </widget>
        </item>
@@ -258,6 +257,7 @@
           <font>
            <family>楷体</family>
            <pointsize>16</pointsize>
+           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -275,6 +275,7 @@
           <font>
            <family>楷体</family>
            <pointsize>16</pointsize>
+           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -292,6 +293,7 @@
           <font>
            <family>楷体</family>
            <pointsize>16</pointsize>
+           <weight>50</weight>
            <bold>false</bold>
           </font>
          </property>
@@ -303,15 +305,36 @@
        <item row="3" column="1">
         <widget class="QLineEdit" name="lineEdit_xorout"/>
        </item>
-       <item row="0" column="1">
-        <widget class="QSpinBox" name="spinBox_width">
-         <property name="minimum">
-          <number>1</number>
-         </property>
-         <property name="maximum">
-          <number>32</number>
-         </property>
-        </widget>
+       <item row="0" column="0">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="pushButton_table">
+           <property name="font">
+            <font>
+             <family>楷体</family>
+            </font>
+           </property>
+           <property name="text">
+            <string>参数模型表</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="font">
+            <font>
+             <family>楷体</family>
+             <pointsize>16</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>宽度 WIDTH：</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
       </layout>
      </item>
@@ -407,11 +430,12 @@
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="label_hint">
+      <widget class="QLabel" name="label_tips">
        <property name="font">
         <font>
          <family>宋体</family>
          <pointsize>16</pointsize>
+         <weight>75</weight>
          <italic>true</italic>
          <bold>true</bold>
         </font>
