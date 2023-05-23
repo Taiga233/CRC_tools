@@ -1,2 +1,6 @@
-<RCC/>
-
+<RCC>
+    <qresource prefix="/">
+        <file>CRC_parameter_table.xml</file>
+        <file>poly_LaTeX.txt</file>
+    </qresource>
+</RCC>

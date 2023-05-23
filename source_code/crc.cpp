@@ -14,11 +14,98 @@ crc::crc(QWidget *parent)
     size_policy.setRetainSizeWhenHidden(true);
     ui->label_tips->setSizePolicy(size_policy);
     ui->label_tips->hide();
+
+    input_file = new std::vector<bool>;
+    Math_ML = new QtMmlWidget;
 }
 
 crc::~crc()
 {
+    delete input_file;
+    input_file = Q_NULLPTR;
+    delete Math_ML;
     delete ui;
+}
+
+bool crc::crc_algorithm(const QBitArray * const input, const uint &width, const QBitArray &poly, const QBitArray &init, const QBitArray &xorout, const bool &reverse_in, const bool &reverse_out, QBitArray &result)
+{
+    bool result_flag = true;
+    QBitArray input_modified((*input));
+
+    //If resize is greater than the current size, the bit array is extended to make it resize bits with the extra bits added to the end. The new bits are initialized to false (0).
+    input_modified.resize(input->size() + width);
+
+    //reverse data by reverse in flag
+    (reverse_in && (result_flag = crc::reverse_data(input_modified, input->size())));
+    Q_ASSERT(result_flag);
+
+    //XOR with INIT
+    if (init.count(true)) {
+        //The result has the length of the longest of the two bit arrays, with any missing bits (if one array is shorter than the other) taken to be 0.
+        input_modified ^= init;
+    }
+
+    //start
+    int pos = 0;
+    while (pos < input_modified.size() && !input_modified.testBit(pos)) {
+        pos++;
+    }
+    while (pos + (poly.size() - 3) <= input_modified.size()) {
+        for (int i = 3, j = pos; j < input_modified.size() && i < poly.size(); i++, j++) {
+            input_modified.setBit(j, (input_modified.at(j) ^ poly.at(i)));
+        }
+        while (pos < input_modified.size() && !input_modified.testBit(pos)) {
+            pos++;
+        }
+//        qDebug() << "pos:" << pos << "input_modified:" << input_modified;
+    }
+    result.resize(width); //agree with crc width
+    for (int i = width - 1; ~i; i--) {
+        result.setBit(i, input_modified.at(input_modified.size() - width + i));
+    }
+
+    //reverse result by reverse out flag
+    (reverse_out && (result_flag = crc::reverse_data(result)));
+    Q_ASSERT(result_flag);
+
+    //xor whit xorout
+    result ^= xorout;
+    qDebug() << "result:" << result;
+
+    return result_flag;
+}
+
+bool crc::crc_algorithm(const std::vector<bool> * const input, const uint &width, const QBitArray &poly, const QBitArray &init, const QBitArray &xorout, const bool &reverse_in, const bool &reverse_out, QBitArray &result)
+{
+    Q_UNUSED(input);
+    Q_UNUSED(width);
+    Q_UNUSED(poly);
+    Q_UNUSED(init);
+    Q_UNUSED(xorout);
+    Q_UNUSED(reverse_in);
+    Q_UNUSED(reverse_out);
+    Q_UNUSED(result);
+    return true;
+}
+
+bool crc::reverse_data(QBitArray &data_array, int data_size)
+{
+    if (!data_size) return false;
+    if (!~data_size) {
+        data_size = data_array.size();
+    }
+    qDebug() << "before:" << data_array;
+    data_size--;
+    bool _a, _b;
+    for (int i = 0; i < data_size; ++i, --data_size) {
+        _a = data_array.at(i);
+        _b = data_array.at(data_size);
+        _a ^= _b ^= _a ^= _b;
+        data_array.setBit(i, _a);
+        data_array.setBit(data_size, _b);
+    }
+    qDebug() << "after:" << data_array;
+    return true;
 }
 
 bool crc::empty_check()
@@ -44,7 +131,75 @@ bool crc::empty_check()
 
 bool crc::specification_check()
 {
-    QString input_data = ui->textEdit->toPlainText();
+    QRegularExpression r_e("[^A-Fa-f0-9]");
+    checked_input.clear();
+    checked_input = ui->textEdit->toPlainText().toUpper();
+//    qDebug() << "checked_input count: " << checked_input.count();
+    checked_input.remove(QRegularExpression("\\s"));
+//    qDebug() << "After: " << checked_input.count() << "content: " << checked_input;
+//    qDebug() << "正则表达式匹配: " << r_e.match(checked_input).capturedLength();
+    if (r_e.match(checked_input).capturedLength()) {
+        ui->label_tips->setText(QString("输入数据格式错误"));
+        return true;
+    }
+    checked_poly.clear();
+    checked_poly = ui->lineEdit_poly->text().toUpper();
+    checked_poly.remove(QRegularExpression("\\s"));
+    if (r_e.match(checked_poly).capturedLength()) {
+        ui->label_tips->setText(QString("多项式（简写）格式错误"));
+        return true;
+    }
+    checked_init.clear();
+    checked_init = ui->lineEdit_init->text().toUpper();
+    checked_init.remove(QRegularExpression("\\s"));
+    if (r_e.match(checked_init).capturedLength()) {
+        ui->label_tips->setText(QString("初始值格式错误"));
+        return true;
+    }
+    checked_xorout.clear();
+    checked_xorout = ui->lineEdit_xorout->text().toUpper();
+    checked_xorout.remove(QRegularExpression("\\s"));
+    if (r_e.match(checked_xorout).capturedLength()) {
+        ui->label_tips->setText(QString("结果异或值格式错误"));
+        return true;
+    }
+
+    return false;
+}
+
+void crc::save_all_data()
+{
+    refin_flag = ui->checkBox_refin->isChecked();
+    refout_flag = ui->checkBox_refout->isChecked();
+    width_crc = ui->spinBox_width->value();
+
+    QString_to_QBitArray(checked_input, input_binary);
+    checked_poly.prepend(QChar('1'));
+    QString_to_QBitArray(checked_poly, poly_binary);
+    QString_to_QBitArray(checked_init, init_binary);
+    QString_to_QBitArray(checked_xorout, xorout_binary);
+}
+
+void crc::QString_to_QBitArray(const QString &strings, QBitArray &bit_array)
+{
+    bit_array.clear();
+    bit_array.resize(strings.size() * 4);
+    quint8 temp_char = 0;
+    char str[1] = {0};
+    int bit_array_position = 0;
+    QByteArray temp_array = strings.toLocal8Bit();
+    for (int i = 0; i < temp_array.size(); ++i) {
+        str[0] = temp_array.at(i);
+        temp_char = (quint8)QByteArray::fromRawData(str, sizeof(char)).toShort(Q_NULLPTR, 16);
+//        temp_char = (quint8)temp_array.at(i); //如果是纯字符串用这个，并且设置大小应该为strings.size() * 8、与值设置为0x80、循环8次、不需要str[]。
+//        qDebug() << "i:" << i << "temp_char:" << (quint8)temp_char;
+        for (int j = 0; j < 4; j++) {
+            bit_array.setBit(bit_array_position++, (temp_char & 0x8));
+//            qDebug() << j << "& j:" << (temp_char & 0x8);
+            temp_char <<= 1;
+        }
+    }
+    qDebug() << "strings:" << strings << bit_array;
 }
 
 
@@ -54,8 +209,6 @@ void crc::on_comboBox_currentIndexChanged(int index)
     switch (index) {
     case 0:
         //自定义
-        ui->spinBox_width->setValue(1);
-        width_crc = (uint)ui->spinBox_width->value();
         ui->lineEdit_poly->clear();
         poly_binary.clear();
         ui->lineEdit_init->clear();
@@ -299,5 +452,50 @@ void crc::on_pushButton_calculate_clicked()
         return ;
     }
 
+    //save all data
+    save_all_data();
+
+    //ready
+    crc::crc_algorithm(&input_binary, width_crc, poly_binary, init_binary, xorout_binary, refin_flag, refout_flag, crc_result);
+
+    //show result
+    QString binary_result;
+    for (int i = 0; i < crc_result.size(); i++) {
+        binary_result.append(crc_result.at(i) ? "1" : "0");
+    }
+    ui->lineEdit_result_bin->setText(binary_result);
+    ui->lineEdit_result_hex->setText(QString::number(binary_result.toUInt(Q_NULLPTR, 2), 16).toUpper());
     ui->label_tips->hide();
+}
+
+void crc::on_pushButton_table_clicked()
+{
+    QString crc_table(":/CRC_parameter_table.xml");
+    QFile file(crc_table);
+    if (!file.open(QIODevice::ReadOnly)) {
+        ui->label_tips->setText(QString("Open file error!"));
+        ui->label_tips->setHidden(false);
+        return ;
+    }
+    QTextStream stream(&file);
+    //stream.setEncoding(QTextStream::UnicodeUTF8);
+    QString MathML_content = stream.readAll();
+    file.close();
+
+    Math_ML->clear();
+    QString error_msg;
+    int error_line, error_column;
+    bool result;
+    result = Math_ML->setContent(MathML_content, &error_msg, &error_line, &error_column);
+    if (!result) {
+        ui->label_tips->setText(QString("Parse error at line %1 column %2.\nError message:").arg(error_line).arg(error_column) + error_msg);
+        ui->label_tips->setHidden(false);
+        return ;
+    }
+    ui->label_tips->hide();
+    Math_ML->setBaseFontPointSize(14);
+    Math_ML->setWindowTitle(QString("CRC polynomial table"));
+    Math_ML->resize(QSize(1850, 830));
+    Math_ML->move(QApplication::desktop()->screen()->rect().center() - Math_ML->rect().center());
+    Math_ML->show();
 }

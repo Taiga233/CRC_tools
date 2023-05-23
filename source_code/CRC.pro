@@ -17,3 +17,6 @@ HEADERS += \
 
 FORMS += \
     crc.ui
+
+RESOURCES += \
+    resources.qrc

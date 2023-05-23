@@ -73,7 +73,7 @@ public:
     {
         if (crc->objectName().isEmpty())
             crc->setObjectName(QStringLiteral("crc"));
-        crc->resize(1274, 722);
+        crc->resize(1275, 735);
         QFont font;
         font.setFamily(QStringLiteral("Consolas"));
         font.setPointSize(16);
@@ -318,6 +318,7 @@ public:
 
         lineEdit_result_hex = new QLineEdit(crc);
         lineEdit_result_hex->setObjectName(QStringLiteral("lineEdit_result_hex"));
+        lineEdit_result_hex->setReadOnly(true);
 
         formLayout_2->setWidget(0, QFormLayout::FieldRole, lineEdit_result_hex);
 
@@ -329,6 +330,7 @@ public:
 
         lineEdit_result_bin = new QLineEdit(crc);
         lineEdit_result_bin->setObjectName(QStringLiteral("lineEdit_result_bin"));
+        lineEdit_result_bin->setReadOnly(true);
 
         formLayout_2->setWidget(1, QFormLayout::FieldRole, lineEdit_result_bin);
 
@@ -374,14 +376,14 @@ public:
          << QApplication::translate("crc", "CRC-32              x32+x26+x23+x22+x16+x12+x11+x10+x8+x7+x5+x4+x2+x+1", 0)
          << QApplication::translate("crc", "CRC-32/MPEG-2       x32+x26+x23+x22+x16+x12+x11+x10+x8+x7+x5+x4+x2+x+1", 0)
         );
-        label_5->setText(QApplication::translate("crc", "\345\244\232\351\241\271\345\274\217 POLY(Hex):", 0));
+        label_5->setText(QApplication::translate("crc", "\345\244\232\351\241\271\345\274\217\347\256\200\345\206\231 POLY(Hex):", 0));
         label_6->setText(QApplication::translate("crc", "\345\210\235\345\247\213\345\200\274 INIT(Hex):", 0));
         label_7->setText(QApplication::translate("crc", "\347\273\223\346\236\234\345\274\202\346\210\226\345\200\274 XOROUT(Hex):", 0));
         pushButton_table->setText(QApplication::translate("crc", "\345\217\202\346\225\260\346\250\241\345\236\213\350\241\250", 0));
         label_4->setText(QApplication::translate("crc", "\345\256\275\345\272\246 WIDTH\357\274\232", 0));
         label_8->setText(QApplication::translate("crc", "\344\276\213\345\246\202\357\274\2328", 0));
-        label_9->setText(QApplication::translate("crc", "\344\276\213\345\246\202\357\274\232ABCD", 0));
-        label_10->setText(QApplication::translate("crc", "\344\276\213\345\246\202\357\274\232FFFF", 0));
+        label_9->setText(QApplication::translate("crc", "\344\276\213\345\246\202\357\274\232FF", 0));
+        label_10->setText(QApplication::translate("crc", "\344\276\213\345\246\202\357\274\232ABCD", 0));
         label_11->setText(QApplication::translate("crc", "\344\276\213\345\246\202\357\274\23200", 0));
         checkBox_refin->setText(QApplication::translate("crc", "\350\276\223\345\205\245\346\225\260\346\215\256\345\217\215\350\275\254\357\274\210REFIN\357\274\211", 0));
         checkBox_refout->setText(QApplication::translate("crc", "\350\276\223\345\207\272\346\225\260\346\215\256\345\217\215\350\275\254\357\274\210REFOUT\357\274\211", 0));

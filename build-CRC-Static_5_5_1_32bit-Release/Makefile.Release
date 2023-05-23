@@ -46,11 +46,13 @@ OBJECTS_DIR   = release
 SOURCES       = ..\source_code\main.cpp \
 		..\source_code\crc.cpp \
 		..\source_code\qtmmlwidget.cpp \
-		crc_plugin_import.cpp release\moc_crc.cpp
+		crc_plugin_import.cpp release\qrc_resources.cpp \
+		release\moc_crc.cpp
 OBJECTS       = release/main.o \
 		release/crc.o \
 		release/qtmmlwidget.o \
 		release/crc_plugin_import.o \
+		release/qrc_resources.o \
 		release/moc_crc.o
 
 DIST          =  ..\source_code\crc.h \
@@ -93,10 +95,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) CRC.zip $(SOURCES) $(DIST) ..\source_code\CRC.pro C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\spec_pre.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\qdevice.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\device_config.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\qconfig.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dcollision.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dcollision_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dcore.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dcore_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dinput.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dinput_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dlogic.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dquick.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dquick_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dquickrenderer.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dquickrenderer_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3drenderer.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3drenderer_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_axbase.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_axbase_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_axcontainer.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_axserver.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_axserver_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_bluetooth.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_clucene_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_concurrent.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_concurrent_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_core.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_core_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_declarative.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_declarative_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_designer.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_designer_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_gui.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_gui_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_help.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_help_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_location.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_location_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_multimedia.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_multimedia_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_network.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_network_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_nfc.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_nfc_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_opengl.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_opengl_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_openglextensions.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_platformsupport_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_positioning.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_positioning_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_printsupport.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_printsupport_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_qml.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_qml_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_qmltest.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_qmltest_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_quick.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_quick_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_quickwidgets.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_script.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_script_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_scripttools.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_scripttools_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_sensors.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_sensors_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_serialport.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_serialport_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_sql.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_sql_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_svg.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_svg_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_testlib.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_testlib_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_uiplugin.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_uitools.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_uitools_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_webchannel.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_webchannel_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_websockets.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_websockets_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_widgets.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_widgets_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_winextras.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_winextras_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_xml.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_xml_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_assimpsceneparser.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_dsengine.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_gltfsceneparser.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qdds.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qdeclarativeview.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qgenericbearer.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qicns.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qico.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qjp2.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qminimal.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qmldbg_inspector.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qmldbg_qtquick2.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qmldbg_tcp.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qmldbg_tcp_qtdeclarative.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qmng.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qnativewifibearer.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qoffscreen.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qsqlite.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qsqlodbc.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qsvg.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qsvgicon.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtaudio_windows.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtga.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtgeoservices_mapbox.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtgeoservices_nokia.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtgeoservices_osm.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtiff.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtmedia_audioengine.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtmultimedia_m3u.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtposition_positionpoll.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtsensorgestures_plugin.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtsensorgestures_shakeplugin.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtsensors_generic.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtuiotouchplugin.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qwbmp.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qwebp.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qwindows.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_windowsprintersupport.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\qt_functions.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\qt_config.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\win32\qt_config.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\win32-g++\qmake.conf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\spec_post.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\exclusive_builds.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\default_pre.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\win32\default_pre.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\resolve_config.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\exclusive_builds_post.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\default_post.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\build_pass.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\win32\rtti.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\link_ltcg.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\ltcg.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\precompile_header.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\warn_on.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\qt.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\resources.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\moc.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\win32\opengl.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\uic.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\win32\windows.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\testcase_targets.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\exceptions.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\yacc.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\lex.prf ..\source_code\CRC.pro C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/lib/qtmain.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/lib/Qt5Widgets.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/lib/Qt5Gui.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/lib/Qt5Xml.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/lib/Qt5Core.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/platforms/qwindows.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qdds.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qicns.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qico.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qjp2.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qmng.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qtga.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qtiff.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qwbmp.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qwebp.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
+	$(ZIP) CRC.zip $(SOURCES) $(DIST) ..\source_code\CRC.pro C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\spec_pre.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\qdevice.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\device_config.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\qconfig.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dcollision.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dcollision_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dcore.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dcore_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dinput.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dinput_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dlogic.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dlogic_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dquick.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dquick_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dquickrenderer.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3dquickrenderer_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3drenderer.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_3drenderer_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_axbase.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_axbase_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_axcontainer.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_axcontainer_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_axserver.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_axserver_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_bluetooth.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_bluetooth_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_bootstrap_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_clucene_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_concurrent.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_concurrent_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_core.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_core_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_declarative.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_declarative_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_designer.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_designer_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_designercomponents_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_gui.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_gui_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_help.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_help_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_location.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_location_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_multimedia.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_multimedia_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_multimediawidgets.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_multimediawidgets_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_network.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_network_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_nfc.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_nfc_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_opengl.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_opengl_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_openglextensions.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_openglextensions_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_platformsupport_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_positioning.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_positioning_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_printsupport.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_printsupport_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_qml.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_qml_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_qmldevtools_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_qmltest.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_qmltest_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_qtmultimediaquicktools_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_quick.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_quick_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_quickparticles_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_quickwidgets.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_quickwidgets_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_script.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_script_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_scripttools.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_scripttools_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_sensors.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_sensors_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_serialport.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_serialport_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_sql.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_sql_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_svg.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_svg_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_testlib.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_testlib_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_uiplugin.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_uitools.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_uitools_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_webchannel.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_webchannel_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_websockets.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_websockets_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_widgets.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_widgets_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_winextras.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_winextras_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_xml.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_xml_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_xmlpatterns.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_lib_xmlpatterns_private.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_assimpsceneparser.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_dsengine.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_gltfsceneparser.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qdds.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qdeclarativeview.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qgenericbearer.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qicns.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qico.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qjp2.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qminimal.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qmldbg_inspector.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qmldbg_qtquick2.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qmldbg_tcp.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qmldbg_tcp_qtdeclarative.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qmng.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qnativewifibearer.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qoffscreen.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qsqlite.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qsqlodbc.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qsvg.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qsvgicon.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtaudio_windows.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtga.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtgeoservices_mapbox.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtgeoservices_nokia.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtgeoservices_osm.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtiff.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtmedia_audioengine.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtmultimedia_m3u.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtposition_positionpoll.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtsensorgestures_plugin.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtsensorgestures_shakeplugin.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtsensors_generic.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qtuiotouchplugin.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qwbmp.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qwebp.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_qwindows.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\modules\qt_plugin_windowsprintersupport.pri C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\qt_functions.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\qt_config.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\win32\qt_config.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\win32-g++\qmake.conf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\spec_post.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\exclusive_builds.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\default_pre.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\win32\default_pre.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\resolve_config.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\exclusive_builds_post.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\default_post.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\build_pass.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\win32\rtti.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\link_ltcg.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\ltcg.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\precompile_header.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\warn_on.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\qt.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\resources.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\moc.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\win32\opengl.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\uic.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\win32\windows.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\testcase_targets.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\exceptions.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\yacc.prf C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\features\lex.prf ..\source_code\CRC.pro ..\source_code\resources.qrc C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/lib/qtmain.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/lib/Qt5Widgets.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/lib/Qt5Gui.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/lib/Qt5Xml.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/lib/Qt5Core.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/platforms/qwindows.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qdds.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qicns.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qico.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qjp2.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qmng.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qtga.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qtiff.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qwbmp.prl C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats/qwebp.prl  NO_PCH_SOURCES RESOURCES HEADERS SOURCES OBJECTIVE_SOURCES FORMS YACCSOURCES YACCSOURCES LEXSOURCES 
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\main.o release\crc.o release\qtmmlwidget.o release\crc_plugin_import.o release\moc_crc.o
+	-$(DEL_FILE) release\main.o release\crc.o release\qtmmlwidget.o release\crc_plugin_import.o release\qrc_resources.o release\moc_crc.o
 
 distclean: clean 
 	-$(DEL_FILE) "C:\Users\Administrator\Documents\VScode repository\CRC_tools\build-CRC-Static_5_5_1_32bit-Release\crc_plugin_import.cpp"
@@ -111,14 +113,22 @@ check: first
 
 compiler_no_pch_compiler_make_all:
 compiler_no_pch_compiler_clean:
-compiler_rcc_make_all:
+compiler_rcc_make_all: release/qrc_resources.cpp
 compiler_rcc_clean:
+	-$(DEL_FILE) release\qrc_resources.cpp
+release/qrc_resources.cpp: ../source_code/resources.qrc \
+		../source_code/CRC_parameter_table.xml \
+		../source_code/poly_LaTeX.txt
+	C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\bin\rcc.exe -name resources ..\source_code\resources.qrc -o release\qrc_resources.cpp
+
 compiler_moc_header_make_all: release/moc_crc.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) release\moc_crc.cpp
-release/moc_crc.cpp: C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QWidget \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qwidget.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qwindowdefs.h \
+release/moc_crc.cpp: C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QBitArray \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbitarray.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbytearray.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qrefcount.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qglobal.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qconfig.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfeatures.h \
@@ -130,7 +140,9 @@ release/moc_crc.cpp: C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-s
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsysinfo.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlogging.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qflags.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qglobalstatic.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmutex.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qnumeric.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbasicatomic.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic_bootstrap.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qgenericatomic.h \
@@ -144,20 +156,19 @@ release/moc_crc.cpp: C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-s
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic_mips.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic_x86.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic_unix.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qglobalstatic.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmutex.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qnumeric.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobjectdefs.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qnamespace.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qarraydata.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstring.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qchar.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstringbuilder.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QDesktopWidget \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qdesktopwidget.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qwidget.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qwindowdefs.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobjectdefs.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobjectdefs_impl.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qwindowdefs_win.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobject.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstring.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qchar.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbytearray.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qrefcount.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qarraydata.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstringbuilder.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlist.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qalgorithms.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qiterator.h \
@@ -218,8 +229,123 @@ release/moc_crc.cpp: C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-s
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfiledevice.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qvector2d.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qtouchdevice.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QBitArray \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbitarray.h \
+		../source_code/qtmmlwidget.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFrame \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qframe.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/QtXml \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/QtXmlDepends \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QtCore \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QtCoreDepends \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractanimation.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qanimationgroup.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qparallelanimationgroup.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qpauseanimation.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qpropertyanimation.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qvariantanimation.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qeasingcurve.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsequentialanimationgroup.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtextcodec.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qendian.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlibraryinfo.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdatetime.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbuffer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdir.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileinfo.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdiriterator.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileselector.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QObject \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QStringList \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfilesystemwatcher.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlockfile.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qloggingcategory.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qprocess.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qresource.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsavefile.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsettings.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstandardpaths.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstorageinfo.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtemporarydir.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QScopedPointer \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtemporaryfile.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractitemmodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractproxymodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qidentityproxymodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qitemselectionmodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsortfilterproxymodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstringlistmodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsonarray.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsonvalue.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsondocument.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsonobject.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstracteventdispatcher.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qeventloop.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractnativeeventfilter.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbasictimer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcoreapplication.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmath.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmetaobject.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmimedata.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobjectcleanuphandler.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qpointer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsharedmemory.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsignalmapper.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsocketnotifier.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsystemsemaphore.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtimer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtranslator.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qwineventnotifier.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmimedatabase.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmimetype.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfactoryinterface.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlibrary.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qplugin.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qpluginloader.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/quuid.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractstate.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstracttransition.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qeventtransition.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfinalstate.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qhistorystate.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsignaltransition.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstate.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstatemachine.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qexception.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfuture.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfutureinterface.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qrunnable.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qresultstore.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfuturesynchronizer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfuturewatcher.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qreadwritelock.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsemaphore.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qthread.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qthreadpool.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qthreadstorage.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qwaitcondition.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qarraydataops.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qarraydatapointer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbytearraymatcher.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcache.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcollator.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcommandlineoption.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcommandlineparser.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcryptographichash.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qelapsedtimer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlinkedlist.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmessageauthenticationcode.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qqueue.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qregularexpression.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qscopedvaluerollback.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstack.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtextboundaryfinder.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtimeline.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtimezone.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qxmlstream.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtcoreversion.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qtxmlglobal.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qdom.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qxml.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qtxmlversion.h \
 		../source_code/crc.h
 	C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/mkspecs/win32-g++ -I"C:/Users/Administrator/Documents/VScode repository/CRC_tools/source_code" -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore -I. ..\source_code\crc.h -o release\moc_crc.cpp
 
@@ -237,16 +363,18 @@ compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean 
 
 
 
 ####### Compile
 
 release/main.o: ../source_code/main.cpp ../source_code/crc.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QWidget \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qwidget.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qwindowdefs.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QBitArray \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbitarray.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbytearray.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qrefcount.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qglobal.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qconfig.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfeatures.h \
@@ -258,7 +386,9 @@ release/main.o: ../source_code/main.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsysinfo.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlogging.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qflags.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qglobalstatic.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmutex.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qnumeric.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbasicatomic.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic_bootstrap.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qgenericatomic.h \
@@ -272,20 +402,19 @@ release/main.o: ../source_code/main.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic_mips.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic_x86.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic_unix.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qglobalstatic.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmutex.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qnumeric.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobjectdefs.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qnamespace.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qarraydata.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstring.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qchar.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstringbuilder.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QDesktopWidget \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qdesktopwidget.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qwidget.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qwindowdefs.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobjectdefs.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobjectdefs_impl.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qwindowdefs_win.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobject.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstring.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qchar.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbytearray.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qrefcount.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qarraydata.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstringbuilder.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlist.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qalgorithms.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qiterator.h \
@@ -346,21 +475,135 @@ release/main.o: ../source_code/main.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfiledevice.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qvector2d.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qtouchdevice.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QBitArray \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbitarray.h \
+		../source_code/qtmmlwidget.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFrame \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qframe.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/QtXml \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/QtXmlDepends \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QtCore \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QtCoreDepends \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractanimation.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qanimationgroup.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qparallelanimationgroup.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qpauseanimation.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qpropertyanimation.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qvariantanimation.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qeasingcurve.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsequentialanimationgroup.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtextcodec.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qendian.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlibraryinfo.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdatetime.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbuffer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdir.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileinfo.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdiriterator.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileselector.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QObject \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QStringList \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfilesystemwatcher.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlockfile.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qloggingcategory.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qprocess.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qresource.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsavefile.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsettings.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstandardpaths.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstorageinfo.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtemporarydir.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QScopedPointer \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtemporaryfile.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractitemmodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractproxymodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qidentityproxymodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qitemselectionmodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsortfilterproxymodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstringlistmodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsonarray.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsonvalue.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsondocument.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsonobject.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstracteventdispatcher.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qeventloop.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractnativeeventfilter.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbasictimer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcoreapplication.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmath.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmetaobject.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmimedata.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobjectcleanuphandler.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qpointer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsharedmemory.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsignalmapper.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsocketnotifier.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsystemsemaphore.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtimer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtranslator.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qwineventnotifier.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmimedatabase.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmimetype.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfactoryinterface.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlibrary.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qplugin.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qpluginloader.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/quuid.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractstate.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstracttransition.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qeventtransition.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfinalstate.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qhistorystate.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsignaltransition.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstate.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstatemachine.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qexception.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfuture.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfutureinterface.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qrunnable.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qresultstore.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfuturesynchronizer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfuturewatcher.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qreadwritelock.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsemaphore.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qthread.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qthreadpool.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qthreadstorage.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qwaitcondition.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qarraydataops.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qarraydatapointer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbytearraymatcher.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcache.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcollator.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcommandlineoption.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcommandlineparser.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcryptographichash.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qelapsedtimer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlinkedlist.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmessageauthenticationcode.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qqueue.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qregularexpression.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qscopedvaluerollback.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstack.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtextboundaryfinder.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtimeline.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtimezone.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qxmlstream.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtcoreversion.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qtxmlglobal.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qdom.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qxml.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qtxmlversion.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QApplication \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qapplication.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcoreapplication.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qeventloop.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qdesktopwidget.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qguiapplication.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\source_code\main.cpp
 
 release/crc.o: ../source_code/crc.cpp ../source_code/crc.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QWidget \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qwidget.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qwindowdefs.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QBitArray \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbitarray.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbytearray.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qrefcount.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qglobal.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qconfig.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfeatures.h \
@@ -372,7 +615,9 @@ release/crc.o: ../source_code/crc.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsysinfo.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlogging.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qflags.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qglobalstatic.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmutex.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qnumeric.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbasicatomic.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic_bootstrap.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qgenericatomic.h \
@@ -386,20 +631,19 @@ release/crc.o: ../source_code/crc.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic_mips.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic_x86.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qatomic_unix.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qglobalstatic.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmutex.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qnumeric.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobjectdefs.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qnamespace.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qarraydata.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstring.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qchar.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstringbuilder.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QDesktopWidget \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qdesktopwidget.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qwidget.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qwindowdefs.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobjectdefs.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobjectdefs_impl.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qwindowdefs_win.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobject.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstring.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qchar.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbytearray.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qrefcount.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qarraydata.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstringbuilder.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlist.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qalgorithms.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qiterator.h \
@@ -460,8 +704,123 @@ release/crc.o: ../source_code/crc.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfiledevice.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qvector2d.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qtouchdevice.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QBitArray \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbitarray.h \
+		../source_code/qtmmlwidget.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFrame \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qframe.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/QtXml \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/QtXmlDepends \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QtCore \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QtCoreDepends \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractanimation.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qanimationgroup.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qparallelanimationgroup.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qpauseanimation.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qpropertyanimation.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qvariantanimation.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qeasingcurve.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsequentialanimationgroup.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtextcodec.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qendian.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlibraryinfo.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdatetime.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbuffer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdir.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileinfo.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdiriterator.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileselector.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QObject \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QStringList \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfilesystemwatcher.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlockfile.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qloggingcategory.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qprocess.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qresource.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsavefile.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsettings.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstandardpaths.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstorageinfo.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtemporarydir.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QScopedPointer \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtemporaryfile.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractitemmodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractproxymodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qidentityproxymodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qitemselectionmodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsortfilterproxymodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstringlistmodel.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsonarray.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsonvalue.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsondocument.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsonobject.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstracteventdispatcher.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qeventloop.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractnativeeventfilter.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbasictimer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcoreapplication.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmath.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmetaobject.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmimedata.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qobjectcleanuphandler.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qpointer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsharedmemory.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsignalmapper.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsocketnotifier.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsystemsemaphore.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtimer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtranslator.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qwineventnotifier.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmimedatabase.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmimetype.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfactoryinterface.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlibrary.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qplugin.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qpluginloader.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/quuid.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractstate.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstracttransition.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qeventtransition.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfinalstate.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qhistorystate.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsignaltransition.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstate.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstatemachine.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qexception.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfuture.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfutureinterface.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qrunnable.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qresultstore.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfuturesynchronizer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfuturewatcher.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qreadwritelock.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qsemaphore.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qthread.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qthreadpool.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qthreadstorage.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qwaitcondition.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qarraydataops.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qarraydatapointer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbytearraymatcher.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcache.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcollator.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcommandlineoption.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcommandlineparser.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcryptographichash.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qelapsedtimer.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlinkedlist.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qmessageauthenticationcode.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qqueue.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qregularexpression.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qscopedvaluerollback.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qstack.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtextboundaryfinder.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtimeline.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtimezone.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qxmlstream.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtcoreversion.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qtxmlglobal.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qdom.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qxml.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qtxmlversion.h \
 		ui_crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QVariant \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QAction \
@@ -470,9 +829,6 @@ release/crc.o: ../source_code/crc.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qactiongroup.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QApplication \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qapplication.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcoreapplication.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qeventloop.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qdesktopwidget.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qguiapplication.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qinputmethod.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QButtonGroup \
@@ -486,15 +842,12 @@ release/crc.o: ../source_code/crc.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qstyleoption.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qabstractspinbox.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qvalidator.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qregularexpression.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qslider.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qabstractslider.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qstyle.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qtabbar.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qtabwidget.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qrubberband.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qframe.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qabstractitemmodel.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFormLayout \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qformlayout.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QLayout \
@@ -507,7 +860,6 @@ release/crc.o: ../source_code/crc.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qheaderview.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qabstractitemview.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qabstractscrollarea.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qitemselectionmodel.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QLabel \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qlabel.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QLineEdit \
@@ -523,7 +875,8 @@ release/crc.o: ../source_code/crc.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QTextEdit \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qtextedit.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qtextdocument.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QVBoxLayout
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QVBoxLayout \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\crc.o ..\source_code\crc.cpp
 
 release/qtmmlwidget.o: ../source_code/qtmmlwidget.cpp C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QApplication \
@@ -823,6 +1176,9 @@ release/crc_plugin_import.o: crc_plugin_import.cpp C:/Software/Qt_5.5.1/static_e
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsonobject.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qjsonvalue.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\crc_plugin_import.o crc_plugin_import.cpp
+
+release/qrc_resources.o: release/qrc_resources.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\qrc_resources.o release\qrc_resources.cpp
 
 release/moc_crc.o: release/moc_crc.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_crc.o release\moc_crc.cpp
