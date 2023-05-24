@@ -26,7 +26,8 @@ public:
 
     static bool crc_algorithm(const QBitArray* const input, const uint &width, const QBitArray &poly, const QBitArray &init, const QBitArray &xorout, const bool &reverse_in, const bool &reverse_out, QBitArray &result);
     static bool crc_algorithm(const std::vector<bool>* const input, const uint &width, const QBitArray &poly, const QBitArray &init, const QBitArray &xorout, const bool &reverse_in, const bool &reverse_out, QBitArray &result);
-    static bool reverse_data(QBitArray &data_array, int data_size = -1);
+    static bool reverse_all(QBitArray &data_array, int data_size = -1);
+    static bool reverse_byte(QBitArray &data_array, int data_size = -1);
 
     bool empty_check();
     bool specification_check();

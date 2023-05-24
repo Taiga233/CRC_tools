@@ -29,17 +29,22 @@ crc::~crc()
 
 bool crc::crc_algorithm(const QBitArray * const input, const uint &width, const QBitArray &poly, const QBitArray &init, const QBitArray &xorout, const bool &reverse_in, const bool &reverse_out, QBitArray &result)
 {
+    qInfo() << "input:" << input;
     bool result_flag = true;
     QBitArray input_modified((*input));
 
     //If resize is greater than the current size, the bit array is extended to make it resize bits with the extra bits added to the end. The new bits are initialized to false (0).
     input_modified.resize(input->size() + width);
 
-    //reverse data by reverse in flag
-    (reverse_in && (result_flag = crc::reverse_data(input_modified, input->size())));
+    //according to bytes reverse data by reverse in flag
+    (reverse_in && (result_flag = crc::reverse_byte(input_modified, input->size())));
     Q_ASSERT(result_flag);
 
     //XOR with INIT
+    if (init.size() > input_modified.size()) {
+        result_flag = false;
+    }
+    Q_ASSERT(result_flag);
     if (init.count(true)) {
         //The result has the length of the longest of the two bit arrays, with any missing bits (if one array is shorter than the other) taken to be 0.
         input_modified ^= init;
@@ -65,12 +70,18 @@ bool crc::crc_algorithm(const QBitArray * const input, const uint &width, const 
     }
 
     //reverse result by reverse out flag
-    (reverse_out && (result_flag = crc::reverse_data(result)));
+    (reverse_out && (result_flag = crc::reverse_all(result)));
     Q_ASSERT(result_flag);
 
     //xor whit xorout
-    result ^= xorout;
-    qDebug() << "result:" << result;
+    if (xorout.size() > result.size()) {
+        result_flag = false;
+    }
+    Q_ASSERT(result_flag);
+    if (xorout.count(true)) {
+        result ^= xorout;
+    }
+    qInfo() << "result:" << result;
 
     return result_flag;
 }
@@ -88,13 +99,13 @@ bool crc::crc_algorithm(const std::vector<bool> * const input, const uint &width
     return true;
 }
 
-bool crc::reverse_data(QBitArray &data_array, int data_size)
+bool crc::reverse_all(QBitArray &data_array, int data_size)
 {
     if (!data_size) return false;
     if (!~data_size) {
         data_size = data_array.size();
     }
-    qDebug() << "before:" << data_array;
+    qInfo() << "before:" << data_array;
     data_size--;
     bool _a, _b;
     for (int i = 0; i < data_size; ++i, --data_size) {
@@ -104,7 +115,29 @@ bool crc::reverse_data(QBitArray &data_array, int data_size)
         data_array.setBit(i, _a);
         data_array.setBit(data_size, _b);
     }
-    qDebug() << "after:" << data_array;
+    qInfo() << "after:" << data_array;
+    return true;
+}
+
+//according to bytes to reverse
+bool crc::reverse_byte(QBitArray &data_array, int data_size)
+{
+    if (!data_size) return false;
+    if (!~data_size) {
+        data_size = data_array.size();
+    }
+    qInfo() << "before:" << data_array;
+    bool _a, _b;
+    for (int i = 0; i < (data_size >> 3); i++) {
+        for (int j = (i << 3), k = (i << 3) + 8 - 1; j < k; j++, k--) {
+            _a = data_array.at(j);
+            _b = data_array.at(k);
+            _a ^= _b ^= _a ^= _b;
+            data_array.setBit(j, _a);
+            data_array.setBit(k, _b);
+        }
+    }
+    qInfo() << "after:" << data_array;
     return true;
 }
 
@@ -173,6 +206,9 @@ void crc::save_all_data()
     refout_flag = ui->checkBox_refout->isChecked();
     width_crc = ui->spinBox_width->value();
 
+    if (checked_input.size() & 1) {
+        checked_input.prepend("0");
+    }
     QString_to_QBitArray(checked_input, input_binary);
     checked_poly.prepend(QChar('1'));
     QString_to_QBitArray(checked_poly, poly_binary);
@@ -199,7 +235,7 @@ void crc::QString_to_QBitArray(const QString &strings, QBitArray &bit_array)
             temp_char <<= 1;
         }
     }
-    qDebug() << "strings:" << strings << bit_array;
+//    qDebug() << "strings:" << strings << bit_array;
 }
 
 
@@ -335,7 +371,7 @@ void crc::on_comboBox_currentIndexChanged(int index)
     case 15:
         ui->spinBox_width->setValue(16);
         ui->lineEdit_poly->setText(QString("1021"));
-        ui->lineEdit_init->setText(QString("FFFF"));
+        ui->lineEdit_init->setText(QString("0000"));
         ui->lineEdit_xorout->setText(QString("0000"));
         ui->checkBox_refin->setCheckState(Qt::Checked);
         ui->checkBox_refout->setCheckState(Qt::Checked);
@@ -456,7 +492,13 @@ void crc::on_pushButton_calculate_clicked()
     save_all_data();
 
     //ready
-    crc::crc_algorithm(&input_binary, width_crc, poly_binary, init_binary, xorout_binary, refin_flag, refout_flag, crc_result);
+    bool crc_flag;
+    crc_flag = crc::crc_algorithm(&input_binary, width_crc, poly_binary, init_binary, xorout_binary, refin_flag, refout_flag, crc_result);
+    if (!crc_flag) {
+        ui->label_tips->setText(QString("CRC错误"));
+        ui->label_tips->setHidden(false);
+        return ;
+    }
 
     //show result
     QString binary_result;
@@ -464,7 +506,12 @@ void crc::on_pushButton_calculate_clicked()
         binary_result.append(crc_result.at(i) ? "1" : "0");
     }
     ui->lineEdit_result_bin->setText(binary_result);
-    ui->lineEdit_result_hex->setText(QString::number(binary_result.toUInt(Q_NULLPTR, 2), 16).toUpper());
+    QString hex_result(QString::number(binary_result.toUInt(Q_NULLPTR, 2), 16).toUpper());
+    for (int i = hex_result.size(); i < (binary_result.size() >> 2); i++) {
+        hex_result.prepend("0");
+    }
+    hex_result.prepend("0x");
+    ui->lineEdit_result_hex->setText(hex_result);
     ui->label_tips->hide();
 }
 
