@@ -243,6 +243,9 @@
        </property>
        <item row="0" column="1">
         <widget class="QSpinBox" name="spinBox_width">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style=&quot; font-family:'宋体'; font-size:12pt;&quot;&gt;当宽度小于8时，多项式的值会发生改变，此时多项式简写为多项式完整写法，并且不会在前面添加1。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
          <property name="minimum">
           <number>1</number>
          </property>
@@ -261,13 +264,23 @@
            <bold>false</bold>
           </font>
          </property>
+         <property name="toolTip">
+          <string/>
+         </property>
          <property name="text">
           <string>多项式简写 POLY(Hex):</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="lineEdit_poly"/>
+        <widget class="QLineEdit" name="lineEdit_poly">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body style=&quot; font-family:'宋体'; font-size:12pt;&quot;&gt;&lt;p&gt;多项式二进制位数必须小于数据+宽度位数之和&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="whatsThis">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="label_6">
@@ -285,7 +298,11 @@
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="lineEdit_init"/>
+        <widget class="QLineEdit" name="lineEdit_init">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body style=&quot; font-family:'宋体'; font-size:12pt;&quot;&gt;&lt;p&gt;初始值二进制位数需和宽度一致（不一致会截断处理😜）&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="label_7">
@@ -303,7 +320,11 @@
         </widget>
        </item>
        <item row="3" column="1">
-        <widget class="QLineEdit" name="lineEdit_xorout"/>
+        <widget class="QLineEdit" name="lineEdit_xorout">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body style=&quot; font-family:'宋体'; font-size:12pt;&quot;&gt;&lt;p&gt;结果异或值也需要和宽度一致（不一致也做了截断处理）&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
        </item>
        <item row="0" column="0">
         <layout class="QHBoxLayout" name="horizontalLayout">
@@ -313,6 +334,12 @@
             <font>
              <family>楷体</family>
             </font>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p style=&quot; font-family:'宋体'; font-size:12pt;&quot;&gt;更多的参数模型可参考WIKI百科&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="whatsThis">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="text">
             <string>参数模型表</string>
@@ -328,6 +355,12 @@
              <weight>50</weight>
              <bold>false</bold>
             </font>
+           </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body style=&quot; font-family:'宋体'; font-size:12pt;&quot;&gt;&lt;p&gt;宽度8以下的特殊多项式(非简写)二进制值：&lt;/p&gt;&lt;p&gt;CRC-4/ITU:10011&lt;/p&gt;&lt;p&gt;CRC-5/EPC:101001&lt;/p&gt;&lt;p&gt;CRC-5/ITU:110101&lt;/p&gt;&lt;p&gt;CRC-5/USB:100101&lt;/p&gt;&lt;p&gt;CRC-6/ITU:1000011&lt;/p&gt;&lt;p&gt;CRC-7/MMC:10001001&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
+           <property name="whatsThis">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
            </property>
            <property name="text">
             <string>宽度 WIDTH：</string>
@@ -382,6 +415,9 @@
          <pointsize>16</pointsize>
         </font>
        </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body style=&quot; font-family:'宋体'; font-size:12pt;&quot;&gt;&lt;p&gt;输入数据反转按照&lt;span style=&quot; font-weight:600;&quot;&gt;字节&lt;/span&gt;反转，每个字节里的&lt;span style=&quot; font-weight:600;&quot;&gt;每一个位&lt;/span&gt;首尾交换。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
        <property name="text">
         <string>输入数据反转（REFIN）</string>
        </property>
@@ -394,6 +430,9 @@
          <family>宋体</family>
          <pointsize>16</pointsize>
         </font>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body style=&quot; font-family:'宋体'; font-size:12pt;&quot;&gt;&lt;p&gt;输出数据反转按照整个数据翻转，例如：00010110 → 01101000。&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="text">
         <string>输出数据反转（REFOUT）</string>

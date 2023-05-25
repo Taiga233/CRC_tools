@@ -376,16 +376,52 @@ public:
          << QApplication::translate("crc", "CRC-32              x32+x26+x23+x22+x16+x12+x11+x10+x8+x7+x5+x4+x2+x+1", 0)
          << QApplication::translate("crc", "CRC-32/MPEG-2       x32+x26+x23+x22+x16+x12+x11+x10+x8+x7+x5+x4+x2+x+1", 0)
         );
+#ifndef QT_NO_TOOLTIP
+        spinBox_width->setToolTip(QApplication::translate("crc", "<html><head/><body><p style=\" font-family:'\345\256\213\344\275\223'; font-size:12pt;\">\345\275\223\345\256\275\345\272\246\345\260\217\344\272\2168\346\227\266\357\274\214\345\244\232\351\241\271\345\274\217\347\232\204\345\200\274\344\274\232\345\217\221\347\224\237\346\224\271\345\217\230\357\274\214\346\255\244\346\227\266\345\244\232\351\241\271\345\274\217\347\256\200\345\206\231\344\270\272\345\244\232\351\241\271\345\274\217\345\256\214\346\225\264\345\206\231\346\263\225\357\274\214\345\271\266\344\270\224\344\270\215\344\274\232\345\234\250\345\211\215\351\235\242\346\267\273\345\212\2401\343\200\202</p></body></html>", 0));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_TOOLTIP
+        label_5->setToolTip(QString());
+#endif // QT_NO_TOOLTIP
         label_5->setText(QApplication::translate("crc", "\345\244\232\351\241\271\345\274\217\347\256\200\345\206\231 POLY(Hex):", 0));
+#ifndef QT_NO_TOOLTIP
+        lineEdit_poly->setToolTip(QApplication::translate("crc", "<html><head/><body style=\" font-family:'\345\256\213\344\275\223'; font-size:12pt;\"><p>\345\244\232\351\241\271\345\274\217\344\272\214\350\277\233\345\210\266\344\275\215\346\225\260\345\277\205\351\241\273\345\260\217\344\272\216\346\225\260\346\215\256+\345\256\275\345\272\246\344\275\215\346\225\260\344\271\213\345\222\214</p></body></html>", 0));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_WHATSTHIS
+        lineEdit_poly->setWhatsThis(QApplication::translate("crc", "<html><head/><body><p><br/></p></body></html>", 0));
+#endif // QT_NO_WHATSTHIS
         label_6->setText(QApplication::translate("crc", "\345\210\235\345\247\213\345\200\274 INIT(Hex):", 0));
+#ifndef QT_NO_TOOLTIP
+        lineEdit_init->setToolTip(QApplication::translate("crc", "<html><head/><body style=\" font-family:'\345\256\213\344\275\223'; font-size:12pt;\"><p>\345\210\235\345\247\213\345\200\274\344\272\214\350\277\233\345\210\266\344\275\215\346\225\260\351\234\200\345\222\214\345\256\275\345\272\246\344\270\200\350\207\264\357\274\210\344\270\215\344\270\200\350\207\264\344\274\232\346\210\252\346\226\255\345\244\204\347\220\206\360\237\230\234\357\274\211</p></body></html>", 0));
+#endif // QT_NO_TOOLTIP
         label_7->setText(QApplication::translate("crc", "\347\273\223\346\236\234\345\274\202\346\210\226\345\200\274 XOROUT(Hex):", 0));
+#ifndef QT_NO_TOOLTIP
+        lineEdit_xorout->setToolTip(QApplication::translate("crc", "<html><head/><body style=\" font-family:'\345\256\213\344\275\223'; font-size:12pt;\"><p>\347\273\223\346\236\234\345\274\202\346\210\226\345\200\274\344\271\237\351\234\200\350\246\201\345\222\214\345\256\275\345\272\246\344\270\200\350\207\264\357\274\210\344\270\215\344\270\200\350\207\264\344\271\237\345\201\232\344\272\206\346\210\252\346\226\255\345\244\204\347\220\206\357\274\211</p></body></html>", 0));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_TOOLTIP
+        pushButton_table->setToolTip(QApplication::translate("crc", "<html><head/><body><p style=\" font-family:'\345\256\213\344\275\223'; font-size:12pt;\">\346\233\264\345\244\232\347\232\204\345\217\202\346\225\260\346\250\241\345\236\213\345\217\257\345\217\202\350\200\203WIKI\347\231\276\347\247\221</p></body></html>", 0));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_WHATSTHIS
+        pushButton_table->setWhatsThis(QApplication::translate("crc", "<html><head/><body><p><br/></p></body></html>", 0));
+#endif // QT_NO_WHATSTHIS
         pushButton_table->setText(QApplication::translate("crc", "\345\217\202\346\225\260\346\250\241\345\236\213\350\241\250", 0));
+#ifndef QT_NO_TOOLTIP
+        label_4->setToolTip(QApplication::translate("crc", "<html><head/><body style=\" font-family:'\345\256\213\344\275\223'; font-size:12pt;\"><p>\345\256\275\345\272\2468\344\273\245\344\270\213\347\232\204\347\211\271\346\256\212\345\244\232\351\241\271\345\274\217(\351\235\236\347\256\200\345\206\231)\344\272\214\350\277\233\345\210\266\345\200\274\357\274\232</p><p>CRC-4/ITU:10011</p><p>CRC-5/EPC:101001</p><p>CRC-5/ITU:110101</p><p>CRC-5/USB:100101</p><p>CRC-6/ITU:1000011</p><p>CRC-7/MMC:10001001</p></body></html>", 0));
+#endif // QT_NO_TOOLTIP
+#ifndef QT_NO_WHATSTHIS
+        label_4->setWhatsThis(QApplication::translate("crc", "<html><head/><body><p><br/></p></body></html>", 0));
+#endif // QT_NO_WHATSTHIS
         label_4->setText(QApplication::translate("crc", "\345\256\275\345\272\246 WIDTH\357\274\232", 0));
         label_8->setText(QApplication::translate("crc", "\344\276\213\345\246\202\357\274\2328", 0));
         label_9->setText(QApplication::translate("crc", "\344\276\213\345\246\202\357\274\232FF", 0));
         label_10->setText(QApplication::translate("crc", "\344\276\213\345\246\202\357\274\232ABCD", 0));
         label_11->setText(QApplication::translate("crc", "\344\276\213\345\246\202\357\274\23200", 0));
+#ifndef QT_NO_TOOLTIP
+        checkBox_refin->setToolTip(QApplication::translate("crc", "<html><head/><body style=\" font-family:'\345\256\213\344\275\223'; font-size:12pt;\"><p>\350\276\223\345\205\245\346\225\260\346\215\256\345\217\215\350\275\254\346\214\211\347\205\247<span style=\" font-weight:600;\">\345\255\227\350\212\202</span>\345\217\215\350\275\254\357\274\214\346\257\217\344\270\252\345\255\227\350\212\202\351\207\214\347\232\204<span style=\" font-weight:600;\">\346\257\217\344\270\200\344\270\252\344\275\215</span>\351\246\226\345\260\276\344\272\244\346\215\242\343\200\202</p></body></html>", 0));
+#endif // QT_NO_TOOLTIP
         checkBox_refin->setText(QApplication::translate("crc", "\350\276\223\345\205\245\346\225\260\346\215\256\345\217\215\350\275\254\357\274\210REFIN\357\274\211", 0));
+#ifndef QT_NO_TOOLTIP
+        checkBox_refout->setToolTip(QApplication::translate("crc", "<html><head/><body style=\" font-family:'\345\256\213\344\275\223'; font-size:12pt;\"><p>\350\276\223\345\207\272\346\225\260\346\215\256\345\217\215\350\275\254\346\214\211\347\205\247\346\225\264\344\270\252\346\225\260\346\215\256\347\277\273\350\275\254\357\274\214\344\276\213\345\246\202\357\274\23200010110 \342\206\222 01101000\343\200\202</p></body></html>", 0));
+#endif // QT_NO_TOOLTIP
         checkBox_refout->setText(QApplication::translate("crc", "\350\276\223\345\207\272\346\225\260\346\215\256\345\217\215\350\275\254\357\274\210REFOUT\357\274\211", 0));
         pushButton_calculate->setText(QApplication::translate("crc", "\350\256\241\347\256\227", 0));
         label_tips->setText(QApplication::translate("crc", "\350\257\267\350\276\223\345\205\245\351\234\200\350\246\201\346\240\241\351\252\214\347\232\204\346\225\260\346\215\256 ", 0));

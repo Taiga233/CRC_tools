@@ -17,22 +17,23 @@ crc::crc(QWidget *parent)
 
     input_file = new std::vector<bool>;
     Math_ML = new QtMmlWidget;
+    Math_ML->setAttribute(Qt::WA_QuitOnClose, false); //Makes Qt quit the application when the last widget with the attribute set has accepted closeEvent().
 }
 
 crc::~crc()
 {
     delete input_file;
     input_file = Q_NULLPTR;
+    Math_ML->close();
     delete Math_ML;
     delete ui;
 }
 
 bool crc::crc_algorithm(const QBitArray * const input, const uint &width, const QBitArray &poly, const QBitArray &init, const QBitArray &xorout, const bool &reverse_in, const bool &reverse_out, QBitArray &result)
 {
-    qInfo() << "input:" << input;
+    qInfo() << "input:" << (*input);
     bool result_flag = true;
     QBitArray input_modified((*input));
-
     //If resize is greater than the current size, the bit array is extended to make it resize bits with the extra bits added to the end. The new bits are initialized to false (0).
     input_modified.resize(input->size() + width);
 
@@ -41,23 +42,48 @@ bool crc::crc_algorithm(const QBitArray * const input, const uint &width, const 
     Q_ASSERT(result_flag);
 
     //XOR with INIT
-    if (init.size() > input_modified.size()) {
-        result_flag = false;
-    }
-    Q_ASSERT(result_flag);
     if (init.count(true)) {
-        //The result has the length of the longest of the two bit arrays, with any missing bits (if one array is shorter than the other) taken to be 0.
-        input_modified ^= init;
+        QBitArray init_modified(init);
+        crc::simplify(init_modified); //remove redundant 0
+//        qDebug() << "init_modified:" << init_modified;
+        if ((uint)init_modified.size() > width) {
+            qWarning() << "init size longer than crc width!";
+        }
+        //if init_modified size less than width, add 0 in front.
+        if ((uint)init_modified.size() < width) {
+            crc::reverse_all(init_modified);
+            init_modified.resize(width);
+            crc::reverse_all(init_modified);
+        }
+        if (__builtin_expect((init_modified.size() <= input_modified.size()), 1)) {
+            //The result has the length of the longest of the two bit arrays, with any missing bits (if one array is shorter than the other) taken to be 0.
+            input_modified ^= init_modified;
+        } else {
+            qWarning() << "init size longer than input_modified!";
+            for (int i = 0; i < input_modified.size(); i++) {
+                input_modified.setBit(i, (input_modified.at(i) ^ init_modified.at(i)));
+            }
+        }
     }
 
     //start
+    QBitArray poly_modified(poly);
+    crc::simplify(poly_modified);
+    //在这里多项式可以根据位宽在前面添加一个1
     int pos = 0;
     while (pos < input_modified.size() && !input_modified.testBit(pos)) {
-        pos++;
+        pos++; //find the first 1.
     }
-    while (pos + (poly.size() - 3) <= input_modified.size()) {
-        for (int i = 3, j = pos; j < input_modified.size() && i < poly.size(); i++, j++) {
-            input_modified.setBit(j, (input_modified.at(j) ^ poly.at(i)));
+//    qDebug() << "pos:" << pos;
+    if (poly_modified.size() > (input_modified.size() - pos) && pos != input_modified.size()) {
+        qCritical() << "poly_modified size longer than input data at first XOR!";
+        result_flag = false;
+        Q_ASSERT(result_flag);
+        return result_flag;
+    }
+    while (pos + poly_modified.size() <= input_modified.size()) {
+        for (int i = 0, j = pos; j < input_modified.size() && i < poly_modified.size(); i++, j++) {
+            input_modified.setBit(j, (input_modified.at(j) ^ poly_modified.at(i)));
         }
         while (pos < input_modified.size() && !input_modified.testBit(pos)) {
             pos++;
@@ -66,26 +92,38 @@ bool crc::crc_algorithm(const QBitArray * const input, const uint &width, const 
     }
     result.resize(width); //agree with crc width
     for (int i = width - 1; ~i; i--) {
-        result.setBit(i, input_modified.at(input_modified.size() - width + i));
+        result.setBit(i, input_modified.at(input_modified.size() - (width - i)));
     }
 
-    //reverse result by reverse out flag
+    //reverse all result data by reverse out flag
     (reverse_out && (result_flag = crc::reverse_all(result)));
     Q_ASSERT(result_flag);
 
-    //xor whit xorout
-    if (xorout.size() > result.size()) {
-        result_flag = false;
-    }
-    Q_ASSERT(result_flag);
+    //xor with xorout
     if (xorout.count(true)) {
-        result ^= xorout;
+        QBitArray xorout_modified(xorout);
+        crc::simplify(xorout_modified);
+        //if xorout_modified size less than width, add 0 in front.
+        if ((uint)xorout_modified.size() < width) {
+            crc::reverse_all(xorout_modified);
+            xorout_modified.resize(width);
+            crc::reverse_all(xorout_modified);
+        }
+        if (__builtin_expect((xorout_modified.size() <= result.size()), 1)) {
+            result ^= xorout_modified;
+        } else {
+            qWarning() << "xorout size longer than result(as same as width)!";
+            for (int i = 0; i < result.size(); i++) {
+                result.setBit(i, (result.at(i) ^ xorout_modified.at(i)));
+            }
+        }
     }
     qInfo() << "result:" << result;
 
     return result_flag;
 }
 
+//用于大文件的处理，暂时还没写（。＾▽＾）
 bool crc::crc_algorithm(const std::vector<bool> * const input, const uint &width, const QBitArray &poly, const QBitArray &init, const QBitArray &xorout, const bool &reverse_in, const bool &reverse_out, QBitArray &result)
 {
     Q_UNUSED(input);
@@ -105,7 +143,7 @@ bool crc::reverse_all(QBitArray &data_array, int data_size)
     if (!~data_size) {
         data_size = data_array.size();
     }
-    qInfo() << "before:" << data_array;
+//    qDebug() << "before:" << data_array;
     data_size--;
     bool _a, _b;
     for (int i = 0; i < data_size; ++i, --data_size) {
@@ -115,7 +153,7 @@ bool crc::reverse_all(QBitArray &data_array, int data_size)
         data_array.setBit(i, _a);
         data_array.setBit(data_size, _b);
     }
-    qInfo() << "after:" << data_array;
+//    qDebug() << "after:" << data_array;
     return true;
 }
 
@@ -141,21 +179,32 @@ bool crc::reverse_byte(QBitArray &data_array, int data_size)
     return true;
 }
 
+//remove QBitArray zero in front
+void crc::simplify(QBitArray &bit_array)
+{
+    if (!bit_array.size()) return ;
+    crc::reverse_all(bit_array);
+    for (int i = bit_array.size() - 1; !bit_array.at(i) && i; i--) {
+        bit_array.truncate(i); //remove redundant 0
+    }
+    crc::reverse_all(bit_array);
+}
+
 bool crc::empty_check()
 {
-    if(ui->textEdit->toPlainText().isEmpty()) {
+    if(checked_input.isEmpty()) {
         ui->label_tips->setText(QString("请输入需要校验的数据"));
         return true;
     }
-    if(ui->lineEdit_poly->text().isEmpty()) {
+    if(checked_poly.isEmpty()) {
         ui->label_tips->setText(QString("请输入多项式的值（十六进制）"));
         return true;
     }
-    if(ui->lineEdit_init->text().isEmpty()) {
+    if(checked_init.isEmpty()) {
         ui->label_tips->setText(QString("请输入初始值（十六进制）"));
         return true;
     }
-    if(ui->lineEdit_init->text().isEmpty()) {
+    if(checked_xorout.isEmpty()) {
         ui->label_tips->setText(QString("请输入结果异或值（十六进制）"));
         return true;
     }
@@ -165,8 +214,6 @@ bool crc::empty_check()
 bool crc::specification_check()
 {
     QRegularExpression r_e("[^A-Fa-f0-9]");
-    checked_input.clear();
-    checked_input = ui->textEdit->toPlainText().toUpper();
 //    qDebug() << "checked_input count: " << checked_input.count();
     checked_input.remove(QRegularExpression("\\s"));
 //    qDebug() << "After: " << checked_input.count() << "content: " << checked_input;
@@ -175,22 +222,19 @@ bool crc::specification_check()
         ui->label_tips->setText(QString("输入数据格式错误"));
         return true;
     }
-    checked_poly.clear();
-    checked_poly = ui->lineEdit_poly->text().toUpper();
+
     checked_poly.remove(QRegularExpression("\\s"));
     if (r_e.match(checked_poly).capturedLength()) {
         ui->label_tips->setText(QString("多项式（简写）格式错误"));
         return true;
     }
-    checked_init.clear();
-    checked_init = ui->lineEdit_init->text().toUpper();
+
     checked_init.remove(QRegularExpression("\\s"));
     if (r_e.match(checked_init).capturedLength()) {
         ui->label_tips->setText(QString("初始值格式错误"));
         return true;
     }
-    checked_xorout.clear();
-    checked_xorout = ui->lineEdit_xorout->text().toUpper();
+
     checked_xorout.remove(QRegularExpression("\\s"));
     if (r_e.match(checked_xorout).capturedLength()) {
         ui->label_tips->setText(QString("结果异或值格式错误"));
@@ -210,7 +254,9 @@ void crc::save_all_data()
         checked_input.prepend("0");
     }
     QString_to_QBitArray(checked_input, input_binary);
-    checked_poly.prepend(QChar('1'));
+    if (width_crc >= 8) {
+        checked_poly.prepend(QChar('1'));
+    } //polynomial will change when width less than 8.
     QString_to_QBitArray(checked_poly, poly_binary);
     QString_to_QBitArray(checked_init, init_binary);
     QString_to_QBitArray(checked_xorout, xorout_binary);
@@ -239,7 +285,7 @@ void crc::QString_to_QBitArray(const QString &strings, QBitArray &bit_array)
 }
 
 
-
+//也可以用xml文件来记录值
 void crc::on_comboBox_currentIndexChanged(int index)
 {
     switch (index) {
@@ -258,7 +304,7 @@ void crc::on_comboBox_currentIndexChanged(int index)
         break;
     case 1:
         ui->spinBox_width->setValue(4);
-        ui->lineEdit_poly->setText(QString("03"));
+        ui->lineEdit_poly->setText(QString("13"));
         ui->lineEdit_init->setText(QString("00"));
         ui->lineEdit_xorout->setText(QString("00"));
         ui->checkBox_refin->setCheckState(Qt::Checked);
@@ -266,7 +312,7 @@ void crc::on_comboBox_currentIndexChanged(int index)
         break;
     case 2:
         ui->spinBox_width->setValue(5);
-        ui->lineEdit_poly->setText(QString("09"));
+        ui->lineEdit_poly->setText(QString("29"));
         ui->lineEdit_init->setText(QString("09"));
         ui->lineEdit_xorout->setText(QString("00"));
         ui->checkBox_refin->setCheckState(Qt::Unchecked);
@@ -274,7 +320,7 @@ void crc::on_comboBox_currentIndexChanged(int index)
         break;
     case 3:
         ui->spinBox_width->setValue(5);
-        ui->lineEdit_poly->setText(QString("15"));
+        ui->lineEdit_poly->setText(QString("35"));
         ui->lineEdit_init->setText(QString("00"));
         ui->lineEdit_xorout->setText(QString("00"));
         ui->checkBox_refin->setCheckState(Qt::Checked);
@@ -282,7 +328,7 @@ void crc::on_comboBox_currentIndexChanged(int index)
         break;
     case 4:
         ui->spinBox_width->setValue(5);
-        ui->lineEdit_poly->setText(QString("05"));
+        ui->lineEdit_poly->setText(QString("25"));
         ui->lineEdit_init->setText(QString("1F"));
         ui->lineEdit_xorout->setText(QString("1F"));
         ui->checkBox_refin->setCheckState(Qt::Checked);
@@ -290,7 +336,7 @@ void crc::on_comboBox_currentIndexChanged(int index)
         break;
     case 5:
         ui->spinBox_width->setValue(6);
-        ui->lineEdit_poly->setText(QString("03"));
+        ui->lineEdit_poly->setText(QString("43"));
         ui->lineEdit_init->setText(QString("00"));
         ui->lineEdit_xorout->setText(QString("00"));
         ui->checkBox_refin->setCheckState(Qt::Checked);
@@ -298,7 +344,7 @@ void crc::on_comboBox_currentIndexChanged(int index)
         break;
     case 6:
         ui->spinBox_width->setValue(7);
-        ui->lineEdit_poly->setText(QString("09"));
+        ui->lineEdit_poly->setText(QString("89"));
         ui->lineEdit_init->setText(QString("00"));
         ui->lineEdit_xorout->setText(QString("00"));
         ui->checkBox_refin->setCheckState(Qt::Unchecked);
@@ -470,12 +516,29 @@ void crc::on_comboBox_currentIndexChanged(int index)
 void crc::on_pushButton_clear_clicked()
 {
     ui->textEdit->clear();
-    ui->lineEdit_result_bin->clear();
-    ui->lineEdit_result_hex->clear();
+//    ui->lineEdit_result_bin->clear();
+//    ui->lineEdit_result_hex->clear();
+    if (!ui->comboBox->currentIndex()) {
+        ui->lineEdit_init->clear();
+        ui->lineEdit_poly->clear();
+        ui->lineEdit_xorout->clear();
+    }
+    ui->label_tips->clear();
 }
 
 void crc::on_pushButton_calculate_clicked()
 {
+    ui->lineEdit_result_hex->clear();
+    ui->lineEdit_result_bin->clear();
+    checked_input.clear();
+    checked_input = ui->textEdit->toPlainText().toUpper();
+    checked_poly.clear();
+    checked_poly = ui->lineEdit_poly->text().toUpper();
+    checked_init.clear();
+    checked_init = ui->lineEdit_init->text().toUpper();
+    checked_xorout.clear();
+    checked_xorout = ui->lineEdit_xorout->text().toUpper();
+
     //input empty check
     if (empty_check()) {
         ui->label_tips->setHidden(false);
@@ -484,6 +547,12 @@ void crc::on_pushButton_calculate_clicked()
 
     //input specification check
     if (specification_check()) {
+        ui->label_tips->setHidden(false);
+        return ;
+    }
+
+    //input empty check again
+    if (empty_check()) {
         ui->label_tips->setHidden(false);
         return ;
     }
