@@ -8,15 +8,15 @@ WIKI:[Cyclic redundancy check - Wikipedia](https://en.wikipedia.org/wiki/Cyclic_
 
 - 点击 `CRC.exe`运行，因为是静态编译所以可直接拷贝exe文件到别的系统使用。
 - 输入十六进制数据。
-- ![usage_01](.\usage_pic\usage_01.png)
+- ![usage_01](./usage_pic/usage_01.png)
 - 选择参数模型。
-- ![usage_02](.\usage_pic\usage_02.png)
+- ![usage_02](./usage_pic/usage_02.png)
 - 计算。
-- ![usage_03](.\usage_pic\usage_03.png)
+- ![usage_03](./usage_pic/usage_03.png)
 - 可以查看参数模型表。
-- ![usage_04](.\usage_pic\usage_04.png)
+- ![usage_04](./usage_pic/usage_04.png)
 - 有输入的格式校验和提示信息。
-- ![usage_05](.\usage_pic\usage_05.png)
+- ![usage_05](./usage_pic/usage_05.png)
 
 ## CRC介绍
 
