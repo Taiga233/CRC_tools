@@ -39,7 +39,7 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="3,1">
+    <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="3,0">
      <item>
       <widget class="QLabel" name="label_2">
        <property name="font">
@@ -54,17 +54,14 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_clear">
+      <widget class="QPushButton" name="pushButton">
        <property name="font">
         <font>
          <family>宋体</family>
-         <pointsize>16</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
         </font>
        </property>
        <property name="text">
-        <string>清空输入</string>
+        <string>选择文件</string>
        </property>
       </widget>
      </item>
@@ -442,7 +439,10 @@
     </layout>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="1,3">
+    <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="1,3,0">
+     <property name="spacing">
+      <number>12</number>
+     </property>
      <item>
       <widget class="QPushButton" name="pushButton_calculate">
        <property name="sizePolicy">
@@ -483,7 +483,22 @@
         <string>请输入需要校验的数据 </string>
        </property>
        <property name="alignment">
-        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_clear">
+       <property name="font">
+        <font>
+         <family>宋体</family>
+         <pointsize>16</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>清空输入</string>
        </property>
       </widget>
      </item>

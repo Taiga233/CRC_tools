@@ -4,6 +4,8 @@
 
 #include <QBitArray>
 #include <QDesktopWidget>
+#include <QMessageBox>
+//#include <QDomDocument>
 
 #include <vector>
 
@@ -23,6 +25,8 @@ class crc : public QWidget
 public:
     crc(QWidget *parent = NULL);
     ~crc();
+    void initialize_xml();
+    void generate_formula();
 
     static bool crc_algorithm(const QBitArray* const input, const uint &width, const QBitArray &poly, const QBitArray &init, const QBitArray &xorout, const bool &reverse_in, const bool &reverse_out, QBitArray &result);
     static bool crc_algorithm(const std::vector<bool>* const input, const uint &width, const QBitArray &poly, const QBitArray &init, const QBitArray &xorout, const bool &reverse_in, const bool &reverse_out, QBitArray &result);

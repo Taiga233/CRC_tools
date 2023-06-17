@@ -18,6 +18,8 @@ crc::crc(QWidget *parent)
     input_file = new std::vector<bool>;
     Math_ML = new QtMmlWidget;
     Math_ML->setAttribute(Qt::WA_QuitOnClose, false); //Makes Qt quit the application when the last widget with the attribute set has accepted closeEvent().
+    //initialize_xml(); //learning XML class.
+    generate_formula(); //generate formula from binary polynomial by xml file.
 }
 
 crc::~crc()
@@ -27,6 +29,130 @@ crc::~crc()
     Math_ML->close();
     delete Math_ML;
     delete ui;
+}
+
+//学习一下对XML的操作
+void crc::initialize_xml()
+{
+    QFile file("./crc_parameter.xml");
+    if (!file.open(QFileDevice::ReadWrite | QFileDevice::Truncate)) {
+        QMessageBox::information(Q_NULLPTR, "Warning", "XML file failed to open/create!");
+        return ;
+    }
+    QDomDocument xml_document; //xml的主操作类
+    //添加xml第一行的说明
+    QDomProcessingInstruction instruction;
+    instruction = xml_document.createProcessingInstruction("xml", "version=\"1.0\" encoding=\"UTF-8\"");
+    xml_document.appendChild(instruction);
+    //根节点
+    QDomElement root = xml_document.createElement(QString("Arguments"));
+    root.setAttribute("total", 0);
+    root.setAttribute("Description", "crc arguments of detail");
+    xml_document.appendChild(root);
+
+    QDomElement child = xml_document.createElement(QString("Parametric_model"));
+    child.setAttribute("name", "CRC-4-ITU");
+    child.setAttribute("ID", 1);
+    root.appendChild(child); //可以先添加子节点再添加子节点的节点
+
+    //child的孩子节点，用于记录CRC参数的详细信息
+    {
+        QDomElement details = xml_document.createElement(QString("Details"));
+        details.setAttribute("width", 4);
+        details.setAttribute("polynomial_hex_abbreviation", "03");
+        details.setAttribute("initial_XOR_value_hex", "00");
+        details.setAttribute("result_XOR_value_hex", "00");
+        details.setAttribute("input_reverse_flag", true);
+        details.setAttribute("output_reverse_flag", true);
+        child.appendChild(details);
+    }
+
+    //child的孩子节点，记录其他信息
+    {
+        QDomElement poly_binary; //多项式（非简写）的二进制表示形式和真正的十六进制形式
+        poly_binary = xml_document.createElement(QString("Polynomial_binary"));
+        poly_binary.setAttribute("hex_completeness", "0x13");
+        poly_binary.setAttribute("hex_abbreviation", "0x03");
+        QDomText text;
+        text = xml_document.createTextNode(QString("10011"));
+        poly_binary.appendChild(text);
+        child.appendChild(poly_binary);
+    }
+    {
+        QDomElement init_xor_binary; //初始异或值的二进制表示形式
+        init_xor_binary = xml_document.createElement(QString("Initial_XOR_value_binary"));
+        init_xor_binary.appendChild(xml_document.createTextNode(QString("0000")));
+        child.appendChild(init_xor_binary);
+    }
+    {
+        QDomElement result_xor_binary; //结果异或值的二进制表示形式
+        result_xor_binary = xml_document.createElement(QString("Result_XOR_value_binary"));
+        result_xor_binary.appendChild(xml_document.createTextNode(QString("0000")));
+        child.appendChild(result_xor_binary);
+    }
+    {
+        QDomElement poly_formula; //多项式公式
+        poly_formula = xml_document.createElement(QString("Polynomial_formula"));
+        QDomText text;
+        text = xml_document.createTextNode(QString("x4 + x + 1"));
+        poly_formula.appendChild(text);
+        child.appendChild(poly_formula);
+    }
+    {
+        QDomElement poly_formula_LaTeX; //多项式表达式的LaTex公式表示形式
+        poly_formula_LaTeX = xml_document.createElement(QString("Polynomial_formula_LaTeX"));
+        poly_formula_LaTeX.appendChild(xml_document.createTextNode(QString("x^{4} + x + 1")));
+        child.appendChild(poly_formula_LaTeX);
+        /* 这里和上面添加孩子节点的方式是一样的，
+         * 但是不能全部这么用，因为函数appendChild()的返回值不是本身的引用
+         * 不能这么用：
+         *child.appendChild(xml_document.createElement(QString("Polynomial_formula_LaTeX")).appendChild(xml_document.createTextNode(QString("x^{4} + x + 1"))));
+         */
+    }
+    {
+        QDomElement poly_formula_MathML; //多项式表达式的MathML表示形式
+        poly_formula_MathML = xml_document.createElement(QString("Polynomial_formula_MathML"));
+        poly_formula_MathML.appendChild(xml_document.createTextNode(QString("<math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><msup><mi>x</mi><mrow><mn>4</mn></mrow></msup><mo>+</mo><mi>x</mi><mo>+</mo><mn>1</mn></math>")));
+        child.appendChild(poly_formula_MathML);
+    }
+    {
+        QDomElement Uses_description; //该参数模型用在哪些算法或国际标准中
+        Uses_description = xml_document.createElement(QString("Uses"));
+        Uses_description.appendChild(xml_document.createTextNode(QString("International Telecommunication Union")));
+        child.appendChild(Uses_description);
+    }
+
+    QTextStream stream(&file);
+    xml_document.save(stream, 2); //缩进2格
+    file.close();
+}
+
+//通过xml文件中的Polynomial_binary节点的值来生成两种形式的多项式公式
+void crc::generate_formula()
+{
+    // 打开文件
+    QFile file(":/xml_file/resources/crc_parameter.xml");
+    if (!file.open(QFileDevice::ReadOnly)) {
+        QMessageBox::information(Q_NULLPTR, "Error!", "XML file failed to open.");
+        return ;
+    }
+    qDebug() << "file size:" << file.size();
+    qDebug() << "sizeof file:" << sizeof(file);
+
+    //从IO设备中读取XML文件，如果内容被成功解析返回true，否则返回false
+    QDomDocument doc;
+    if (!doc.setContent(&file)) {
+        QMessageBox::information(Q_NULLPTR, "WARNNING!", "It's not XML file.");
+        file.close(); //别忘了关闭文件
+        return ;
+    }
+    qDebug() << "sizeof doc:" << sizeof(doc);
+
+    // 获得根节点
+    QDomElement root = doc.documentElement();
+    qDebug() << "root name:" << root.nodeName();
+
+    file.close();
 }
 
 bool crc::crc_algorithm(const QBitArray * const input, const uint &width, const QBitArray &poly, const QBitArray &init, const QBitArray &xorout, const bool &reverse_in, const bool &reverse_out, QBitArray &result)
@@ -586,7 +712,7 @@ void crc::on_pushButton_calculate_clicked()
 
 void crc::on_pushButton_table_clicked()
 {
-    QString crc_table(":/CRC_parameter_table.xml");
+    QString crc_table(":/xml_file/resources/CRC_parameter_table.xml");
     QFile file(crc_table);
     if (!file.open(QIODevice::ReadOnly)) {
         ui->label_tips->setText(QString("Open file error!"));

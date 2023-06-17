@@ -4,6 +4,8 @@ CRC tool(include 21 polynomials and custom).
 
 WIKI:[Cyclic redundancy check - Wikipedia](https://en.wikipedia.org/wiki/Cyclic_redundancy_check)
 
+Easy to use and fast C++ CRC library:[CRC++ (d-bahr.github.io)](https://d-bahr.github.io/CRCpp/index.html)
+
 ## 使用说明
 
 - 点击 `CRC.exe`运行，因为是静态编译所以可直接拷贝exe文件到别的系统使用。

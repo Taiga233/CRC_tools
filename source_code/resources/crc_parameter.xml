@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Arguments total="82" Description="crc arguments of detail">
+  <Parametric_model name="自定义" ID="0">
+    <Details width="?" polynomial_hex_abbreviation="?" initial_XOR_value_hex="?" result_XOR_value_hex="?" input_reverse_flag="?" output_reverse_flag="?"/>
+    <Polynomial_binary hex_completeness="0x?" hex_abbreviation="0x?">?</Polynomial_binary>
+    <Initial_XOR_value_binary>?</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>?</Result_XOR_value_binary>
+    <Polynomial_formula>?</Polynomial_formula>
+    <Polynomial_formula_LaTeX>?</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>自定义</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-3-GSM" ID="1">
+    <Details width="3" polynomial_hex_abbreviation="3" initial_XOR_value_hex="0" result_XOR_value_hex="0" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0xB" hex_abbreviation="0x3">1011</Polynomial_binary>
+    <Initial_XOR_value_binary>000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000</Result_XOR_value_binary>
+    <Polynomial_formula>x3 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{3}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>mobile networks</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-4-ITU" ID="2">
+    <Details width="4" polynomial_hex_abbreviation="03" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x13" hex_abbreviation="0x03">10011</Polynomial_binary>
+    <Initial_XOR_value_binary>0000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000</Result_XOR_value_binary>
+    <Polynomial_formula>x4 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{4}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>&lt;math xmlns="http://www.w3.org/1998/Math/MathML" display="block">&lt;msup>&lt;mi>x&lt;/mi>&lt;mrow>&lt;mn>4&lt;/mn>&lt;/mrow>&lt;/msup>&lt;mo>+&lt;/mo>&lt;mi>x&lt;/mi>&lt;mo>+&lt;/mo>&lt;mn>1&lt;/mn>&lt;/math></Polynomial_formula_MathML>
+    <Polynomial_formula_MathML>International Telecommunication Union</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-5-EPC" ID="3">
+    <Details width="5" polynomial_hex_abbreviation="09" initial_XOR_value_hex="09" result_XOR_value_hex="00" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x29" hex_abbreviation="0x09">101001</Polynomial_binary>
+    <Initial_XOR_value_binary>01001</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000</Result_XOR_value_binary>
+    <Polynomial_formula>x5 + x3 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{5}+x^{3}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>Gen 2 RFID(Radio-frequency identification)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-5-ITU" ID="4">
+    <Details width="5" polynomial_hex_abbreviation="15" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x35" hex_abbreviation="0x15">110101</Polynomial_binary>
+    <Initial_XOR_value_binary>00000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000</Result_XOR_value_binary>
+    <Polynomial_formula>x5 + x4 + x2 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{5}+x^{4}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>International Telecommunication Union</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-5-USB" ID="5">
+    <Details width="5" polynomial_hex_abbreviation="05" initial_XOR_value_hex="1F" result_XOR_value_hex="1F" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x25" hex_abbreviation="0x05">100101</Polynomial_binary>
+    <Initial_XOR_value_binary>11111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>11111</Result_XOR_value_binary>
+    <Polynomial_formula>x5 + x2 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{5}+x^{4}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>USB token packets</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-6-CDMA2000-A" ID="6">
+    <Details width="6" polynomial_hex_abbreviation="27" initial_XOR_value_hex="3F" result_XOR_value_hex="00" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x67" hex_abbreviation="0x27">1100111</Polynomial_binary>
+    <Initial_XOR_value_binary>111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000</Result_XOR_value_binary>
+    <Polynomial_formula>x6 + x5 + x2 + x1 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{6}+x^{5}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>mobile networks</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-6-CDMA2000-B" ID="7">
+    <Details width="6" polynomial_hex_abbreviation="07" initial_XOR_value_hex="3F" result_XOR_value_hex="00" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x47" hex_abbreviation="0x07">1000111</Polynomial_binary>
+    <Initial_XOR_value_binary>111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000</Result_XOR_value_binary>
+    <Polynomial_formula>x6 + x2 + x1 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{6}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>mobile networks</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-6-DARC" ID="8">
+    <Details width="6" polynomial_hex_abbreviation="19" initial_XOR_value_hex="3F" result_XOR_value_hex="00" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x59" hex_abbreviation="0x19">1011001</Polynomial_binary>
+    <Initial_XOR_value_binary>111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000</Result_XOR_value_binary>
+    <Polynomial_formula>x6 + x4 + x3 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{6}+x^{4}+x^{3}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>Data Radio Channel</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-6-ITU" ID="9">
+    <Details width="6" polynomial_hex_abbreviation="03" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x43" hex_abbreviation="0x03">1000011</Polynomial_binary>
+    <Initial_XOR_value_binary>000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000</Result_XOR_value_binary>
+    <Polynomial_formula>x6 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{6}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>International Telecommunication Union</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-6-NR" ID="10">
+    <Details width="6" polynomial_hex_abbreviation="21" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x61" hex_abbreviation="0x21">1100001</Polynomial_binary>
+    <Initial_XOR_value_binary>000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000</Result_XOR_value_binary>
+    <Polynomial_formula>x6 + x5 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{6}+x^{5}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-6 NR(Non-Return-to-Zero) is often used in conjunction with a variety of communication protocols, including asynchronous serial communication and the I2C bus protocol.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-7" ID="11">
+    <Details width="7" polynomial_hex_abbreviation="09" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x89" hex_abbreviation="0x09">10001001</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000</Result_XOR_value_binary>
+    <Polynomial_formula>x7 + x3 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{7}+x^{3}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>telecom systems, ITU-T G.707, ITU-T G.832, MMC, SD</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-7-MVB" ID="12">
+    <Details width="7" polynomial_hex_abbreviation="65" initial_XOR_value_hex="7F" result_XOR_value_hex="00" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0xE5" hex_abbreviation="0x65">11100101</Polynomial_binary>
+    <Initial_XOR_value_binary>1111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000</Result_XOR_value_binary>
+    <Polynomial_formula>x7 + x3 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{7}+x^{3}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>Train Communication Network, IEC 60870-5</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-8" ID="13">
+    <Details width="8" polynomial_hex_abbreviation="07" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x107" hex_abbreviation="0x07">100000111</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000</Result_XOR_value_binary>
+    <Polynomial_formula>x8 + x2 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{8}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-8 SMBus</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-8-DVB" ID="14">
+    <Details width="8" polynomial_hex_abbreviation="D5" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1D5" hex_abbreviation="0xD5">111010101</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000</Result_XOR_value_binary>
+    <Polynomial_formula>x8 + x7 + x6 + x4 + x2 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{8}+x^{7}+x^{6}+x^{4}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>DVB-S2(Digital Video Broadcasting - Satellite - Second Generation)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-8-AUTOSAR" ID="15">
+    <Details width="8" polynomial_hex_abbreviation="2F" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x12F" hex_abbreviation="0x2F">100101111</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000</Result_XOR_value_binary>
+    <Polynomial_formula>x8 + x5 + x3 + x2 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{8}+x^{5}+x^{3}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>automotive integration, OpenSafety</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-8-Bluetooth" ID="16">
+    <Details width="8" polynomial_hex_abbreviation="A7" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1A7" hex_abbreviation="0xA7">110100111</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000</Result_XOR_value_binary>
+    <Polynomial_formula>x8 + x7 + x5 + x2 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{8}+x^{7}+x^{5}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>wireless connectivity</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-8-ITU" ID="17">
+    <Details width="8" polynomial_hex_abbreviation="07" initial_XOR_value_hex="00" result_XOR_value_hex="55" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x107" hex_abbreviation="0x07">100000111</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>01010101</Result_XOR_value_binary>
+    <Polynomial_formula>x8 + x2 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{8}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>ITU-T I.432.1 (02/99); ATM HEC, ISDN HEC and cell delineation, SMBus PEC</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-8-Dallas/Maxim" ID="18">
+    <Details width="8" polynomial_hex_abbreviation="31" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x131" hex_abbreviation="0x31">100110001</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000</Result_XOR_value_binary>
+    <Polynomial_formula>x8 + x5 + x4 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{8}+x^{5}+x^{4}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>1-Wire bus</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-8-DARC" ID="19">
+    <Details width="8" polynomial_hex_abbreviation="39" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x139" hex_abbreviation="0x39">100111001</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000</Result_XOR_value_binary>
+    <Polynomial_formula>x8 + x5 + x4 + x3 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{8}+x^{5}+x^{4}+x^{3}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>Data Radio Channel</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-8-GSM-B" ID="20">
+    <Details width="8" polynomial_hex_abbreviation="49" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x149" hex_abbreviation="0x49">101001001</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000</Result_XOR_value_binary>
+    <Polynomial_formula>x8 + x6 + x3 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{8}+x^{6}+x^{3}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>mobile networks</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-8-SAE-J1850" ID="21">
+    <Details width="8" polynomial_hex_abbreviation="1D" initial_XOR_value_hex="FF" result_XOR_value_hex="00" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x11D" hex_abbreviation="0x1D">100011101</Polynomial_binary>
+    <Initial_XOR_value_binary>11111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000</Result_XOR_value_binary>
+    <Polynomial_formula>x8 + x4 + x3 + x2 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{8}+x^{4}+x^{3}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>AES3; OBD(On-board diagnostics); CRC-8 EBU (aka CRC-8 AES)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-8-WCDMA" ID="22">
+    <Details width="8" polynomial_hex_abbreviation="9B" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x19B" hex_abbreviation="0x9B">110011011</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000</Result_XOR_value_binary>
+    <Polynomial_formula>x8 + x7 + x4 + x3 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{8}+x^{7}+x^{4}+x^{3}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>mobile networks</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-8-ROHC" ID="23">
+    <Details width="8" polynomial_hex_abbreviation="07" initial_XOR_value_hex="FF" result_XOR_value_hex="00" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x107" hex_abbreviation="0x07">100000111</Polynomial_binary>
+    <Initial_XOR_value_binary>11111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000</Result_XOR_value_binary>
+    <Polynomial_formula>x8 + x2 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{8}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>Robust Header Compression</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-8-HDLC" ID="24">
+    <Details width="8" polynomial_hex_abbreviation="07" initial_XOR_value_hex="FF" result_XOR_value_hex="FF" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x107" hex_abbreviation="0x07">100000111</Polynomial_binary>
+    <Initial_XOR_value_binary>11111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>11111111</Result_XOR_value_binary>
+    <Polynomial_formula>x8 + x2 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{8}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-8 HDLC(High-level Data Link Control) (ISO/IEC 13239:2002)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-8-LTE" ID="25">
+    <Details width="8" polynomial_hex_abbreviation="9B" initial_XOR_value_hex="00" result_XOR_value_hex="00" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x19B" hex_abbreviation="0x9B">110011011</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000</Result_XOR_value_binary>
+    <Polynomial_formula>x8 + x7 + x4 + x3 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{8}+x^{7}+x^{4}+x^{3}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>LTE(Long-Term Evolution) is a 4G wireless communication standard that is used in mobile networks to provide high-speed data transmission.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-10" ID="26">
+    <Details width="10" polynomial_hex_abbreviation="233" initial_XOR_value_hex="000" result_XOR_value_hex="000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x633" hex_abbreviation="0x233">11000110011</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000</Result_XOR_value_binary>
+    <Polynomial_formula>x10 + x9 + x5 + x4 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{10}+x^{9}+x^{5}+x^{4}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>ATM; ITU-T I.610</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-10-CDMA2000" ID="27">
+    <Details width="10" polynomial_hex_abbreviation="3D9" initial_XOR_value_hex="3FF" result_XOR_value_hex="000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x7D9" hex_abbreviation="0x3D9">11111011001</Polynomial_binary>
+    <Initial_XOR_value_binary>1111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000</Result_XOR_value_binary>
+    <Polynomial_formula>x10 + x9 + x8 + x7 + x6 + x4 + x3 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{10}+x^{9}+x^{8}+x^{7}+x^{6}+x^{4}+x^{3}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>mobile networks</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-10-GSM" ID="28">
+    <Details width="10" polynomial_hex_abbreviation="175" initial_XOR_value_hex="000" result_XOR_value_hex="000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x575" hex_abbreviation="0x175">10101110101</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000</Result_XOR_value_binary>
+    <Polynomial_formula>x10 + x8 + x6 + x5 + x4 + x2 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{10}+x^{8}+x^{6}+x^{5}+x^{4}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>mobile networks</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-11" ID="29">
+    <Details width="11" polynomial_hex_abbreviation="385" initial_XOR_value_hex="01A" result_XOR_value_hex="000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0xB85" hex_abbreviation="0x385">101110000101</Polynomial_binary>
+    <Initial_XOR_value_binary>00000011010</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000000</Result_XOR_value_binary>
+    <Polynomial_formula>x11 + x9 + x8 + x7 + x2 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{11}+x^{9}+x^{8}+x^{7}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>FlexRay</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-11-NR" ID="30">
+    <Details width="11" polynomial_hex_abbreviation="621" initial_XOR_value_hex="000" result_XOR_value_hex="000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0xE21" hex_abbreviation="0x621">111000100001</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000000</Result_XOR_value_binary>
+    <Polynomial_formula>x11 + x10 + x9 + x5 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{11}+x^{10}+x^{9}+x^{5}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-11 NR(Non-Return-to-Zero)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-12" ID="31">
+    <Details width="12" polynomial_hex_abbreviation="80F" initial_XOR_value_hex="000" result_XOR_value_hex="000" input_reverse_flag="0" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x180F" hex_abbreviation="0x80F">1100000001111</Polynomial_binary>
+    <Initial_XOR_value_binary>000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000</Result_XOR_value_binary>
+    <Polynomial_formula>x12 + x11 + x3 + x2 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{12}+x^{11}+x^{3}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-12 UMTS (also known as CRC-12 3GPP) is a cyclic redundancy check (CRC) algorithm used in the Universal Mobile Telecommunications System (UMTS) and other cellular communication systems based on the 3rd Generation Partnership Project (3GPP) specifications. telecom systems</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-12-CDMA2000" ID="32">
+    <Details width="12" polynomial_hex_abbreviation="F13" initial_XOR_value_hex="FFF" result_XOR_value_hex="000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1F13" hex_abbreviation="0xF13">1111100010011</Polynomial_binary>
+    <Initial_XOR_value_binary>111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000</Result_XOR_value_binary>
+    <Polynomial_formula>x12 + x11 + x10 + x9 + x8 + x4 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x{12}+x{11}+x{10}+x{9}+x{8}+x{4}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>mobile networks</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-12-GSM" ID="33">
+    <Details width="12" polynomial_hex_abbreviation="D31" initial_XOR_value_hex="000" result_XOR_value_hex="000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1D31" hex_abbreviation="0xD31">1110100110001</Polynomial_binary>
+    <Initial_XOR_value_binary>000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000</Result_XOR_value_binary>
+    <Polynomial_formula>x12 + x11 + x10 + x8 + x5 + x4 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x{12}+x{11}+x{10}+x{8}+x{5}+x{4}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>mobile networks</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-12-DECT" ID="34">
+    <Details width="12" polynomial_hex_abbreviation="80F" initial_XOR_value_hex="000" result_XOR_value_hex="000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x180F" hex_abbreviation="0x80F">1100000001111</Polynomial_binary>
+    <Initial_XOR_value_binary>000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000</Result_XOR_value_binary>
+    <Polynomial_formula>x12 + x11 + x3 + x2 + x + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{12}+x^{11}+x^{3}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-12 DECT (also known as CRC-12 X-CRC) is a cyclic redundancy check (CRC) algorithm used in the Digital Enhanced Cordless Telecommunications (DECT) system.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-13-BBC" ID="35">
+    <Details width="13" polynomial_hex_abbreviation="1CF5" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x3CF5" hex_abbreviation="0x1CF5">11110011110101</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000</Result_XOR_value_binary>
+    <Polynomial_formula>x13 + x12 + x11 + x10 + x7 + x6 + x5 + x4 + x2 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{13}+x^{12}+x^{11}+x^{10}+x^{7}+x^{6}+x^{5}+x^{4}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>Time signal, Radio teleswitch</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-14-DARC" ID="36">
+    <Details width="14" polynomial_hex_abbreviation="0805" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x4805" hex_abbreviation="0x0805">100100000000101</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000000000</Result_XOR_value_binary>
+    <Polynomial_formula>x14 + x11 + x2 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{14}+x^{11}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>Data Radio Channel</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-14-GSM" ID="37">
+    <Details width="14" polynomial_hex_abbreviation="202D" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x602D" hex_abbreviation="0x202D">110000000101101</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000000000</Result_XOR_value_binary>
+    <Polynomial_formula>x14 + x13 + x5 + x3 + x2 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{14}+x^{13}+x^{5}+x^{3}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>mobile networks</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-15-CAN" ID="38">
+    <Details width="15" polynomial_hex_abbreviation="4599" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0xC599" hex_abbreviation="0x4599">1100010110011001</Polynomial_binary>
+    <Initial_XOR_value_binary>000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula>x15 + x14 + x10 + x8 + x7 + x4 + x3 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{15}+x^{14}+x^{10}+x^{8}+x^{7}+x^{4}+x^{3}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-15 CAN (Controller Area Network) is a cyclic redundancy check (CRC) algorithm used in the CAN bus protocol, which is a popular communication protocol used in automotive and industrial applications.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-15-MPT1327" ID="39">
+    <Details width="15" polynomial_hex_abbreviation="6815" initial_XOR_value_hex="0000" result_XOR_value_hex="0001" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0xE815" hex_abbreviation="0x6815">1110100000010101</Polynomial_binary>
+    <Initial_XOR_value_binary>000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000001</Result_XOR_value_binary>
+    <Polynomial_formula>x15 + x14 + x13 + x11 + x4 + x2 + 1</Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{15}+x^{14}+x^{13}+x^{11}+x^{4}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>MPT 1327 is an industry standard for trunked radio communications networks.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-Chakravarty" ID="40">
+    <Details width="16" polynomial_hex_abbreviation="2F15" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x12F15" hex_abbreviation="0x2F15">10010111100010101</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>Optimal for payloads ≤64 bits</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-ARINC" ID="41">
+    <Details width="16" polynomial_hex_abbreviation="A02B" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1A02B" hex_abbreviation="0xA02B">11010000000101011</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>ACARS(Aircraft Communications Addressing and Reporting System) applications</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-CCITT" ID="42">
+    <Details width="16" polynomial_hex_abbreviation="1021" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x11021" hex_abbreviation="0x1021">10001000000100001</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>X.25, V.41, HDLC FCS, XMODEM, Bluetooth, PACTOR, SD, DigRF, many others; known as CRC-CCITT; CRC-16-KERMIT (aka CRC-16 CCITT, CRC-16 CCITT-TRUE)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-CDMA2000" ID="43">
+    <Details width="16" polynomial_hex_abbreviation="C867" initial_XOR_value_hex="FFFF" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1C867" hex_abbreviation="0xC867">11100100001100111</Polynomial_binary>
+    <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>mobile networks</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-DECT-R" ID="44">
+    <Details width="16" polynomial_hex_abbreviation="0589" initial_XOR_value_hex="0000" result_XOR_value_hex="0001" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x10589" hex_abbreviation="0x0589">10000010110001001</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000001</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-16 DECT-R (aka CRC-16 R-CRC)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-DECT-X" ID="45">
+    <Details width="16" polynomial_hex_abbreviation="0589" initial_XOR_value_hex="0000" result_XOR_value_hex="0001" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x10589" hex_abbreviation="0x0589">10000010110001001</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-16 DECT-X (aka CRC-16 X-CRC)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-T10-DIF" ID="46">
+    <Details width="16" polynomial_hex_abbreviation="8BB7" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x18BB7" hex_abbreviation="0x8BB7">11000101110110111</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>SCSI(Small Computer System Interface) DIF</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-DNP" ID="47">
+    <Details width="16" polynomial_hex_abbreviation="3D65" initial_XOR_value_hex="0000" result_XOR_value_hex="FFFF" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x13D65" hex_abbreviation="0x3D65">10011110101100101</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>1111111111111111</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>DNP, IEC 870, M-Bus</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-IBM" ID="48">
+    <Details width="16" polynomial_hex_abbreviation="8005" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x18005" hex_abbreviation="0x8005">11000000000000101</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>Bisync, Modbus, USB, ANSI X3.28, SIA DC-07, many others; also known as CRC-16 and CRC-16-ANSI, CRC-16 ARC (aka CRC-16 IBM, CRC-16 LHA)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-OpenSafety-A" ID="49">
+    <Details width="16" polynomial_hex_abbreviation="5935" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x15935" hex_abbreviation="0x5935">10101100100110101</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>safety fieldbus</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-OpenSafety-B" ID="50">
+    <Details width="16" polynomial_hex_abbreviation="755B" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1755B" hex_abbreviation="0x755B">10111010101011011</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>safety fieldbus</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-Profibus" ID="51">
+    <Details width="16" polynomial_hex_abbreviation="1DCF" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x11DCF" hex_abbreviation="0x1DCF">10001110111001111</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>fieldbus networks</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-BUYPASS" ID="52">
+    <Details width="16" polynomial_hex_abbreviation="8005" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x18005" hex_abbreviation="0x8005">11000000000000101</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-16 BUYPASS (aka CRC-16 VERIFONE, CRC-16 UMTS)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-CCITT-FALSE" ID="53">
+    <Details width="16" polynomial_hex_abbreviation="1021" initial_XOR_value_hex="FFFF" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x11021" hex_abbreviation="0x1021">10001000000100001</Polynomial_binary>
+    <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-16 CCITT FALSE</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-CMS" ID="54">
+    <Details width="16" polynomial_hex_abbreviation="8005" initial_XOR_value_hex="FFFF" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x18005" hex_abbreviation="0x8005">11000000000000101</Polynomial_binary>
+    <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-16 CMS (Cyclic Redundancy Check-16 for the CMS protocol) is a type of error-detecting code used in the Cryptographic Message Syntax (CMS) protocol. The CMS protocol is a widely-used standard for securing electronic messages, such as email, using digital signatures and encryption.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-GENIBUS" ID="55">
+    <Details width="16" polynomial_hex_abbreviation="1021" initial_XOR_value_hex="FFFF" result_XOR_value_hex="FFFF" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x11021" hex_abbreviation="0x1021">10001000000100001</Polynomial_binary>
+    <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>1111111111111111</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-16 GENIBUS (aka CRC-16 EPC, CRC-16 I-CODE, CRC-16 DARC)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-MAXIM" ID="56">
+    <Details width="16" polynomial_hex_abbreviation="8005" initial_XOR_value_hex="0000" result_XOR_value_hex="FFFF" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x18005" hex_abbreviation="0x8005">11000000000000101</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>1111111111111111</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>MAXIM Integrated Products company. One example of how the CRC-16 MAXIM algorithm is used in a real-world application is in the communication between a microcontroller and a sensor device.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-MCRF4XX" ID="57">
+    <Details width="16" polynomial_hex_abbreviation="1021" initial_XOR_value_hex="FFFF" result_XOR_value_hex="0000" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x11021" hex_abbreviation="0x1021">10001000000100001</Polynomial_binary>
+    <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-16 MCRF4XX is a variant of the CRC-16 algorithm that is specifically designed for use in the Texas Instruments MCRF4XX family of radio frequency identification (RFID) chips. These chips are commonly used in applications such as access control, inventory management, and asset tracking.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-MODBUS" ID="58">
+    <Details width="16" polynomial_hex_abbreviation="8005" initial_XOR_value_hex="FFFF" result_XOR_value_hex="0000" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x18005" hex_abbreviation="0x8005">11000000000000101</Polynomial_binary>
+    <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-16 MODBUS is a variant of the CRC-16 algorithm that is commonly used in Modbus communication protocols. Modbus is a serial communication protocol used in industrial automation systems to connect electronic devices such as programmable logic controllers (PLCs), sensors, and other control devices.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-USB" ID="59">
+    <Details width="16" polynomial_hex_abbreviation="8005" initial_XOR_value_hex="FFFF" result_XOR_value_hex="FFFF" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x18005" hex_abbreviation="0x8005">11000000000000101</Polynomial_binary>
+    <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>1111111111111111</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-16 USB (Universal Serial Bus) is a variant of the CRC-16 algorithm that is used in the USB protocol for error detection. USB is a popular communication protocol used for connecting various devices such as computers, smartphones, printers, and other peripherals.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-X-25" ID="60">
+    <Details width="16" polynomial_hex_abbreviation="1021" initial_XOR_value_hex="FFFF" result_XOR_value_hex="FFFF" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x11021" hex_abbreviation="0x1021">10001000000100001</Polynomial_binary>
+    <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>1111111111111111</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-16 X-25 (aka CRC-16 IBM-SDLC, CRC-16 ISO-HDLC, CRC-16 B); CRC-16 X-25 is a variant of the CRC-16 algorithm that is used in various communication protocols, including the X.25 packet-switched network protocol, IBM's Synchronous Data Link Control (SDLC) protocol, ISO's High-Level Data Link Control (HDLC) protocol, and others. This variant of the CRC-16 algorithm is also sometimes referred to as CRC-16 IBM-SDLC, CRC-16 ISO-HDLC, or CRC-16 B.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-16-XMODEM" ID="61">
+    <Details width="16" polynomial_hex_abbreviation="1021" initial_XOR_value_hex="0000" result_XOR_value_hex="0000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x11021" hex_abbreviation="0x1021">10001000000100001</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-16 XMODEM (aka CRC-16 ZMODEM, CRC-16 ACORN, CRC-16 LTE); CRC-16 XMODEM is a variant of the CRC-16 algorithm that is used in the XMODEM file transfer protocol, which is commonly used for transferring files between computers over a serial connection. This variant of the CRC-16 algorithm is also sometimes referred to as CRC-16 ZMODEM, CRC-16 ACORN, or CRC-16 LTE, depending on the specific application.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-17-CAN" ID="62">
+    <Details width="17" polynomial_hex_abbreviation="1685B" initial_XOR_value_hex="00000" result_XOR_value_hex="00000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x3685B" hex_abbreviation="0x1685B">110110100001011011</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CAN FD(CAN with Flexible Data-Rate Specification)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-21-CAN" ID="63">
+    <Details width="21" polynomial_hex_abbreviation="102899" initial_XOR_value_hex="000000" result_XOR_value_hex="000000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x302899" hex_abbreviation="0x102899">1100000010100010011001</Polynomial_binary>
+    <Initial_XOR_value_binary>000000000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CAN FD(CAN with Flexible Data-Rate Specification)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-24-Radix-64" ID="64">
+    <Details width="24" polynomial_hex_abbreviation="864CFB" initial_XOR_value_hex="B704CE" result_XOR_value_hex="000000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1864CFB" hex_abbreviation="0x864CFB">1100001100100110011111011</Polynomial_binary>
+    <Initial_XOR_value_binary>101101110000010011001110</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>OpenPGP, RTCM104v3; CRC-24 OPENPGP</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-24-FlexRay-A" ID="65">
+    <Details width="24" polynomial_hex_abbreviation="5D6DCB" initial_XOR_value_hex="FEDCBA" result_XOR_value_hex="000000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x15D6DCB" hex_abbreviation="0x5D6DCB">1010111010110110111001011</Polynomial_binary>
+    <Initial_XOR_value_binary>111111101101110010111010</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>FlexRay is an automotive network communications protocol developed by the FlexRay Consortium to govern on-board automotive computing.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-24-FlexRay-B" ID="66">
+    <Details width="24" polynomial_hex_abbreviation="5D6DCB" initial_XOR_value_hex="ABCDEF" result_XOR_value_hex="000000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x15D6DCB" hex_abbreviation="0x5D6DCB">1010111010110110111001011</Polynomial_binary>
+    <Initial_XOR_value_binary>101010111100110111101111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>FlexRay is an automotive network communications protocol developed by the FlexRay Consortium to govern on-board automotive computing.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-24-LTE-A/NR-A" ID="67">
+    <Details width="24" polynomial_hex_abbreviation="864CFB" initial_XOR_value_hex="000000" result_XOR_value_hex="000000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1864CFB" hex_abbreviation="0x864CFB">1100001100100110011111011</Polynomial_binary>
+    <Initial_XOR_value_binary>000000000000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-24 LTE-A/NR-A is a variant of the cyclic redundancy check (CRC) algorithm that is used in Long-Term Evolution Advanced (LTE-A) and New Radio (NR) wireless communication systems.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-24-WCDMA" ID="68">
+    <Details width="24" polynomial_hex_abbreviation="800063" initial_XOR_value_hex="000000" result_XOR_value_hex="000000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1800063" hex_abbreviation="0x800063">1100000000000000001100011</Polynomial_binary>
+    <Initial_XOR_value_binary>000000000000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-24 LTE-B/NR-B; Used in OS-9 RTOS. Residue = 0x800FE3.</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-24-NR-C" ID="69">
+    <Details width="24" polynomial_hex_abbreviation="B2B117" initial_XOR_value_hex="000000" result_XOR_value_hex="000000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1B2B117" hex_abbreviation="0xB2B117">1101100101011000100010111</Polynomial_binary>
+    <Initial_XOR_value_binary>000000000000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-24 NR-C</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-30" ID="70">
+    <Details width="30" polynomial_hex_abbreviation="2030B9C7" initial_XOR_value_hex="3FFFFFFF" result_XOR_value_hex="00000000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x6030B9C7" hex_abbreviation="0x2030B9C7">1100000001100001011100111000111</Polynomial_binary>
+    <Initial_XOR_value_binary>111111111111111111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>000000000000000000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-30 CDMA(Code-division multiple access is a channel access method used by various radio communication technologies.)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-32" ID="71">
+    <Details width="32" polynomial_hex_abbreviation="04C11DB7" initial_XOR_value_hex="FFFFFFFF" result_XOR_value_hex="FFFFFFFF" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x104C11DB7" hex_abbreviation="0x04C11DB7">100000100110000010001110110110111</Polynomial_binary>
+    <Initial_XOR_value_binary>11111111111111111111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>11111111111111111111111111111111</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-32 (aka CRC-32 ADCCP, CRC-32 PKZip)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-32-BZIP2" ID="72">
+    <Details width="32" polynomial_hex_abbreviation="04C11DB7" initial_XOR_value_hex="FFFFFFFF" result_XOR_value_hex="FFFFFFFF" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x104C11DB7" hex_abbreviation="0x04C11DB7">100000100110000010001110110110111</Polynomial_binary>
+    <Initial_XOR_value_binary>11111111111111111111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>11111111111111111111111111111111</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-32 BZIP2 (aka CRC-32 AAL5, CRC-32 DECT-B, CRC-32 B-CRC)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-32-MPEG-2" ID="73">
+    <Details width="32" polynomial_hex_abbreviation="04C11DB7" initial_XOR_value_hex="FFFFFFFF" result_XOR_value_hex="00000000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x104C11DB7" hex_abbreviation="0x04C11DB7">100000100110000010001110110110111</Polynomial_binary>
+    <Initial_XOR_value_binary>11111111111111111111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000000000000000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-32 MPEG-2</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-32-POSIX" ID="74">
+    <Details width="32" polynomial_hex_abbreviation="04C11DB7" initial_XOR_value_hex="00000000" result_XOR_value_hex="FFFFFFFF" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x104C11DB7" hex_abbreviation="0x04C11DB7">100000100110000010001110110110111</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000000000000000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>11111111111111111111111111111111</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-32 POSIX</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-32-C" ID="75">
+    <Details width="32" polynomial_hex_abbreviation="1EDC6F41" initial_XOR_value_hex="FFFFFFFF" result_XOR_value_hex="FFFFFFFF" input_reverse_flag="1" output_reverse_flag="1"/>
+    <Polynomial_binary hex_completeness="0x11EDC6F41" hex_abbreviation="0x1EDC6F41">100011110110111000110111101000001</Polynomial_binary>
+    <Initial_XOR_value_binary>11111111111111111111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>11111111111111111111111111111111</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-32 C (aka CRC-32 ISCSI, CRC-32 Castagnoli, CRC-32 Interlaken); iSCSI, SCTP, G.hn payload, SSE4.2, Btrfs, ext4, Ceph</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-32-K" ID="76">
+    <Details width="32" polynomial_hex_abbreviation="741B8CD7" initial_XOR_value_hex="00000000" result_XOR_value_hex="00000000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1741B8CD7" hex_abbreviation="0x741B8CD7">101110100000110111000110011010111</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000000000000000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000000000000000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-32K (Koopman {1,3,28}); Excellent at Ethernet frame length, poor performance with long files</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-32-K2" ID="77">
+    <Details width="32" polynomial_hex_abbreviation="32583499" initial_XOR_value_hex="00000000" result_XOR_value_hex="00000000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x132583499" hex_abbreviation="0x32583499">100110010010110000011010010011001</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000000000000000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000000000000000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>CRC-32K2 (Koopman {1,1,30}); Excellent at Ethernet frame length, poor performance with long files</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-32-Q" ID="78">
+    <Details width="32" polynomial_hex_abbreviation="814141AB" initial_XOR_value_hex="00000000" result_XOR_value_hex="00000000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1814141AB" hex_abbreviation="0x814141AB">110000001010000010100000110101011</Polynomial_binary>
+    <Initial_XOR_value_binary>00000000000000000000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>00000000000000000000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>aviation; AIXM(Aeronautical Information Exchange Model)</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-40-GSM" ID="79">
+    <Details width="40" polynomial_hex_abbreviation="0004820009" initial_XOR_value_hex="0000000000" result_XOR_value_hex="FFFFFFFFFF" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x10004820009" hex_abbreviation="0x0004820009">10000000000000100100000100000000000001001</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000000000000000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>1111111111111111111111111111111111111111</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>GSM(Global System for Mobile Communications) control channel</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-64-ECMA" ID="80">
+    <Details width="64" polynomial_hex_abbreviation="42F0E1EBA9EA3693" initial_XOR_value_hex="0000000000000000" result_XOR_value_hex="0000000000000000" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x142F0E1EBA9EA3693" hex_abbreviation="0x42F0E1EBA9EA3693">10100001011110000111000011110101110101001111010100011011010010011</Polynomial_binary>
+    <Initial_XOR_value_binary>0000000000000000000000000000000000000000000000000000000000000000</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>0000000000000000000000000000000000000000000000000000000000000000</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX></Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>ECMA-182 p. 51, XZ Utils</Polynomial_formula_MathML>
+  </Parametric_model>
+  <Parametric_model name="CRC-64-ISO" ID="81">
+    <Details width="64" polynomial_hex_abbreviation="000000000000001B" initial_XOR_value_hex="FFFFFFFFFFFFFFFF" result_XOR_value_hex="FFFFFFFFFFFFFFFF" input_reverse_flag="0" output_reverse_flag="0"/>
+    <Polynomial_binary hex_completeness="0x1000000000000001B" hex_abbreviation="0x000000000000001B">10000000000000000000000000000000000000000000000000000000000011011</Polynomial_binary>
+    <Initial_XOR_value_binary>1111111111111111111111111111111111111111111111111111111111111111</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>1111111111111111111111111111111111111111111111111111111111111111</Result_XOR_value_binary>
+    <Polynomial_formula></Polynomial_formula>
+    <Polynomial_formula_LaTeX>x^{64}+x^{4}+x^{3}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_MathML>ISO 3309 (HDLC), Swiss-Prot/TrEMBL; considered weak for hashing</Polynomial_formula_MathML>
+  </Parametric_model>
+</Arguments>

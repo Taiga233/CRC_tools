@@ -1,6 +1,9 @@
 <RCC>
-    <qresource prefix="/">
-        <file>CRC_parameter_table.xml</file>
-        <file>poly_LaTeX.txt</file>
+    <qresource prefix="/xml_file">
+        <file>resources/CRC_parameter_table.xml</file>
+        <file>resources/crc_parameter.xml</file>
+    </qresource>
+    <qresource prefix="/others">
+        <file>resources/poly_LaTeX.txt</file>
     </qresource>
 </RCC>
