@@ -14,7 +14,7 @@ CXX           = g++
 DEFINES       = -DUNICODE -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB -DQT_NEEDS_QMAIN
 CFLAGS        = -pipe -fno-keep-inline-dllexport -g -Wall -Wextra $(DEFINES)
 CXXFLAGS      = -pipe -fno-keep-inline-dllexport -g -frtti -Wall -Wextra -fexceptions -mthreads $(DEFINES)
-INCPATH       = -I..\source_code -I. -IC:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\include -IC:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\include\QtWidgets -IC:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\include\QtGui -IC:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\include\QtXml -IC:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\include\QtCore -Idebug -I. -IC:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\win32-g++ 
+INCPATH       = -I..\source_code -I. -I..\source_code\libraries -IC:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\include -IC:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\include\QtWidgets -IC:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\include\QtGui -IC:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\include\QtXml -IC:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\include\QtCore -Idebug -I. -IC:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\mkspecs\win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -static -Wl,-subsystem,windows -mthreads
 LIBS        =        -lglu32 -lopengl32 -lgdi32 -luser32 -lmingw32 -LC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/lib -lqtmaind -lQt5Widgetsd -lQt5Guid -lQt5Xmld -lQt5Cored -LC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/platforms -lqwindowsd -LC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/plugins/imageformats -lqddsd -lqicnsd -lqicod -lqjp2d -lqmngd -lqtgad -lqtiffd -lqwbmpd -lqwebpd 
@@ -45,7 +45,7 @@ OBJECTS_DIR   = debug
 
 SOURCES       = ..\source_code\main.cpp \
 		..\source_code\crc.cpp \
-		..\source_code\qtmmlwidget.cpp \
+		..\source_code\libraries\qtmmlwidget.cpp \
 		crc_plugin_import.cpp debug\qrc_resources.cpp \
 		debug\moc_crc.cpp
 OBJECTS       = debug/main.o \
@@ -56,9 +56,9 @@ OBJECTS       = debug/main.o \
 		debug/moc_crc.o
 
 DIST          =  ..\source_code\crc.h \
-		..\source_code\qtmmlwidget.h ..\source_code\main.cpp \
+		..\source_code\libraries\qtmmlwidget.h ..\source_code\main.cpp \
 		..\source_code\crc.cpp \
-		..\source_code\qtmmlwidget.cpp \
+		..\source_code\libraries\qtmmlwidget.cpp \
 		crc_plugin_import.cpp
 QMAKE_TARGET  = CRC
 DESTDIR        = debug\ #avoid trailing-slash linebreak
@@ -117,8 +117,9 @@ compiler_rcc_make_all: debug/qrc_resources.cpp
 compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_resources.cpp
 debug/qrc_resources.cpp: ../source_code/resources.qrc \
-		../source_code/CRC_parameter_table.xml \
-		../source_code/poly_LaTeX.txt
+		../source_code/resources/crc_parameter.xml \
+		../source_code/resources/CRC_parameter_table.xml \
+		../source_code/resources/poly_LaTeX.txt
 	C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\bin\rcc.exe -name resources ..\source_code\resources.qrc -o debug\qrc_resources.cpp
 
 compiler_moc_header_make_all: debug/moc_crc.cpp
@@ -229,7 +230,10 @@ debug/moc_crc.cpp: C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-sta
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfiledevice.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qvector2d.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qtouchdevice.h \
-		../source_code/qtmmlwidget.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QMessageBox \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qmessagebox.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qdialog.h \
+		../source_code/libraries/qtmmlwidget.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFrame \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qframe.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/QtXml \
@@ -347,7 +351,7 @@ debug/moc_crc.cpp: C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-sta
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qxml.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qtxmlversion.h \
 		../source_code/crc.h
-	C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/mkspecs/win32-g++ -I"C:/Users/Administrator/Documents/VScode repository/CRC_tools/source_code" -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore -I. ..\source_code\crc.h -o debug\moc_crc.cpp
+	C:\Software\Qt_5.5.1\static_environment\5.5.1-mingw32-rel-static\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/mkspecs/win32-g++ -I"C:/Users/Administrator/Documents/VScode repository/CRC_tools/source_code" -I"C:/Users/Administrator/Documents/VScode repository/CRC_tools/source_code/libraries" -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml -IC:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore -I. ..\source_code\crc.h -o debug\moc_crc.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -475,7 +479,10 @@ debug/main.o: ../source_code/main.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfiledevice.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qvector2d.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qtouchdevice.h \
-		../source_code/qtmmlwidget.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QMessageBox \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qmessagebox.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qdialog.h \
+		../source_code/libraries/qtmmlwidget.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFrame \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qframe.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/QtXml \
@@ -704,7 +711,10 @@ debug/crc.o: ../source_code/crc.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfiledevice.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qvector2d.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qtouchdevice.h \
-		../source_code/qtmmlwidget.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QMessageBox \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qmessagebox.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qdialog.h \
+		../source_code/libraries/qtmmlwidget.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFrame \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qframe.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/QtXml \
@@ -821,65 +831,10 @@ debug/crc.o: ../source_code/crc.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qdom.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qxml.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qtxmlversion.h \
-		ui_crc.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QVariant \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QAction \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qaction.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qicon.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qactiongroup.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QApplication \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qapplication.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qguiapplication.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qinputmethod.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QButtonGroup \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qbuttongroup.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QCheckBox \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qcheckbox.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qabstractbutton.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QComboBox \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qcombobox.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qabstractitemdelegate.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qstyleoption.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qabstractspinbox.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qvalidator.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qslider.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qabstractslider.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qstyle.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qtabbar.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qtabwidget.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qrubberband.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFormLayout \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qformlayout.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QLayout \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qlayout.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qlayoutitem.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qboxlayout.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qgridlayout.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QHBoxLayout \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QHeaderView \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qheaderview.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qabstractitemview.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qabstractscrollarea.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QLabel \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qlabel.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QLineEdit \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qlineedit.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qtextcursor.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qtextformat.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qpen.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qtextoption.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QPushButton \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qpushbutton.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QSpinBox \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qspinbox.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QTextEdit \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qtextedit.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qtextdocument.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QVBoxLayout \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QWidget
+		ui_crc.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\crc.o ..\source_code\crc.cpp
 
-debug/qtmmlwidget.o: ../source_code/qtmmlwidget.cpp C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QApplication \
+debug/qtmmlwidget.o: ../source_code/libraries/qtmmlwidget.cpp C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QApplication \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qapplication.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qcoreapplication.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qglobal.h \
@@ -995,7 +950,7 @@ debug/qtmmlwidget.o: ../source_code/qtmmlwidget.cpp C:/Software/Qt_5.5.1/static_
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qtextoption.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/qpen.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtGui/QPaintEvent \
-		../source_code/qtmmlwidget.h \
+		../source_code/libraries/qtmmlwidget.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFrame \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qframe.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/QtXml \
@@ -1111,7 +1066,7 @@ debug/qtmmlwidget.o: ../source_code/qtmmlwidget.cpp C:/Software/Qt_5.5.1/static_
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qdom.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qxml.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtXml/qtxmlversion.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\qtmmlwidget.o ..\source_code\qtmmlwidget.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\qtmmlwidget.o ..\source_code\libraries\qtmmlwidget.cpp
 
 debug/crc_plugin_import.o: crc_plugin_import.cpp C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QtPlugin \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qplugin.h \

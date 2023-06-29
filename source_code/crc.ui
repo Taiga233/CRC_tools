@@ -106,7 +106,7 @@
      <item>
       <widget class="QComboBox" name="comboBox">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
@@ -247,7 +247,7 @@
           <number>1</number>
          </property>
          <property name="maximum">
-          <number>32</number>
+          <number>64</number>
          </property>
         </widget>
        </item>
@@ -277,6 +277,9 @@
          <property name="whatsThis">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
+         <property name="maxLength">
+          <number>32</number>
+         </property>
         </widget>
        </item>
        <item row="2" column="0">
@@ -299,6 +302,9 @@
          <property name="toolTip">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body style=&quot; font-family:'宋体'; font-size:12pt;&quot;&gt;&lt;p&gt;初始值二进制位数需和宽度一致（不一致会截断处理😜）&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>
+         <property name="maxLength">
+          <number>32</number>
+         </property>
         </widget>
        </item>
        <item row="3" column="0">
@@ -320,6 +326,9 @@
         <widget class="QLineEdit" name="lineEdit_xorout">
          <property name="toolTip">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body style=&quot; font-family:'宋体'; font-size:12pt;&quot;&gt;&lt;p&gt;结果异或值也需要和宽度一致（不一致也做了截断处理）&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="maxLength">
+          <number>32</number>
          </property>
         </widget>
        </item>

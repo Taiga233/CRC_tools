@@ -35,7 +35,7 @@ public:
     QLabel *label;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_2;
-    QPushButton *pushButton_clear;
+    QPushButton *pushButton;
     QTextEdit *textEdit;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_3;
@@ -63,6 +63,7 @@ public:
     QHBoxLayout *horizontalLayout_6;
     QPushButton *pushButton_calculate;
     QLabel *label_tips;
+    QPushButton *pushButton_clear;
     QFormLayout *formLayout_2;
     QLabel *label_13;
     QLineEdit *lineEdit_result_hex;
@@ -103,19 +104,15 @@ public:
 
         horizontalLayout_5->addWidget(label_2);
 
-        pushButton_clear = new QPushButton(crc);
-        pushButton_clear->setObjectName(QStringLiteral("pushButton_clear"));
+        pushButton = new QPushButton(crc);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
         QFont font3;
         font3.setFamily(QString::fromUtf8("\345\256\213\344\275\223"));
-        font3.setPointSize(16);
-        font3.setBold(true);
-        font3.setWeight(75);
-        pushButton_clear->setFont(font3);
+        pushButton->setFont(font3);
 
-        horizontalLayout_5->addWidget(pushButton_clear);
+        horizontalLayout_5->addWidget(pushButton);
 
         horizontalLayout_5->setStretch(0, 3);
-        horizontalLayout_5->setStretch(1, 1);
 
         verticalLayout_2->addLayout(horizontalLayout_5);
 
@@ -149,8 +146,11 @@ public:
 
         comboBox = new QComboBox(crc);
         comboBox->setObjectName(QStringLiteral("comboBox"));
-        sizePolicy1.setHeightForWidth(comboBox->sizePolicy().hasHeightForWidth());
-        comboBox->setSizePolicy(sizePolicy1);
+        QSizePolicy sizePolicy2(QSizePolicy::Expanding, QSizePolicy::Fixed);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(comboBox->sizePolicy().hasHeightForWidth());
+        comboBox->setSizePolicy(sizePolicy2);
         QFont font5;
         font5.setFamily(QString::fromUtf8("\345\256\213\344\275\223"));
         font5.setPointSize(14);
@@ -169,7 +169,7 @@ public:
         spinBox_width = new QSpinBox(crc);
         spinBox_width->setObjectName(QStringLiteral("spinBox_width"));
         spinBox_width->setMinimum(1);
-        spinBox_width->setMaximum(32);
+        spinBox_width->setMaximum(64);
 
         formLayout->setWidget(0, QFormLayout::FieldRole, spinBox_width);
 
@@ -181,6 +181,7 @@ public:
 
         lineEdit_poly = new QLineEdit(crc);
         lineEdit_poly->setObjectName(QStringLiteral("lineEdit_poly"));
+        lineEdit_poly->setMaxLength(32);
 
         formLayout->setWidget(1, QFormLayout::FieldRole, lineEdit_poly);
 
@@ -192,6 +193,7 @@ public:
 
         lineEdit_init = new QLineEdit(crc);
         lineEdit_init->setObjectName(QStringLiteral("lineEdit_init"));
+        lineEdit_init->setMaxLength(32);
 
         formLayout->setWidget(2, QFormLayout::FieldRole, lineEdit_init);
 
@@ -203,6 +205,7 @@ public:
 
         lineEdit_xorout = new QLineEdit(crc);
         lineEdit_xorout->setObjectName(QStringLiteral("lineEdit_xorout"));
+        lineEdit_xorout->setMaxLength(32);
 
         formLayout->setWidget(3, QFormLayout::FieldRole, lineEdit_xorout);
 
@@ -274,14 +277,15 @@ public:
         verticalLayout_2->addLayout(horizontalLayout_3);
 
         horizontalLayout_6 = new QHBoxLayout();
+        horizontalLayout_6->setSpacing(12);
         horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
         pushButton_calculate = new QPushButton(crc);
         pushButton_calculate->setObjectName(QStringLiteral("pushButton_calculate"));
-        QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::Minimum);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(pushButton_calculate->sizePolicy().hasHeightForWidth());
-        pushButton_calculate->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy3(QSizePolicy::Minimum, QSizePolicy::Minimum);
+        sizePolicy3.setHorizontalStretch(0);
+        sizePolicy3.setVerticalStretch(0);
+        sizePolicy3.setHeightForWidth(pushButton_calculate->sizePolicy().hasHeightForWidth());
+        pushButton_calculate->setSizePolicy(sizePolicy3);
         pushButton_calculate->setMinimumSize(QSize(70, 60));
         QFont font7;
         font7.setFamily(QString::fromUtf8("\345\215\216\346\226\207\347\220\245\347\217\200"));
@@ -299,9 +303,20 @@ public:
         font8.setItalic(true);
         font8.setWeight(75);
         label_tips->setFont(font8);
-        label_tips->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        label_tips->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_6->addWidget(label_tips);
+
+        pushButton_clear = new QPushButton(crc);
+        pushButton_clear->setObjectName(QStringLiteral("pushButton_clear"));
+        QFont font9;
+        font9.setFamily(QString::fromUtf8("\345\256\213\344\275\223"));
+        font9.setPointSize(16);
+        font9.setBold(true);
+        font9.setWeight(75);
+        pushButton_clear->setFont(font9);
+
+        horizontalLayout_6->addWidget(pushButton_clear);
 
         horizontalLayout_6->setStretch(0, 1);
         horizontalLayout_6->setStretch(1, 3);
@@ -348,7 +363,7 @@ public:
         crc->setWindowTitle(QApplication::translate("crc", "crc", 0));
         label->setText(QApplication::translate("crc", "CRC\357\274\210\345\276\252\347\216\257\345\206\227\344\275\231\346\240\241\351\252\214\357\274\211\350\256\241\347\256\227\345\267\245\345\205\267", 0));
         label_2->setText(QApplication::translate("crc", "\351\234\200\350\246\201\346\240\241\351\252\214\347\232\204\346\225\260\346\215\256\357\274\210\345\215\201\345\205\255\350\277\233\345\210\266\357\274\214\344\276\213\345\246\202: AF1234 \357\274\211\357\274\232", 0));
-        pushButton_clear->setText(QApplication::translate("crc", "\346\270\205\347\251\272\350\276\223\345\205\245", 0));
+        pushButton->setText(QApplication::translate("crc", "\351\200\211\346\213\251\346\226\207\344\273\266", 0));
         textEdit->setDocumentTitle(QString());
         label_3->setText(QApplication::translate("crc", "\345\217\202\346\225\260\346\250\241\345\236\213 NAME:", 0));
         comboBox->clear();
@@ -425,6 +440,7 @@ public:
         checkBox_refout->setText(QApplication::translate("crc", "\350\276\223\345\207\272\346\225\260\346\215\256\345\217\215\350\275\254\357\274\210REFOUT\357\274\211", 0));
         pushButton_calculate->setText(QApplication::translate("crc", "\350\256\241\347\256\227", 0));
         label_tips->setText(QApplication::translate("crc", "\350\257\267\350\276\223\345\205\245\351\234\200\350\246\201\346\240\241\351\252\214\347\232\204\346\225\260\346\215\256 ", 0));
+        pushButton_clear->setText(QApplication::translate("crc", "\346\270\205\347\251\272\350\276\223\345\205\245", 0));
         label_13->setText(QApplication::translate("crc", "\346\240\241\351\252\214\347\273\223\346\236\234\357\274\210Hex\357\274\211\357\274\232", 0));
         label_14->setText(QApplication::translate("crc", "\346\240\241\351\252\214\347\273\223\346\236\234\357\274\210Bin\357\274\211\357\274\232", 0));
     } // retranslateUi

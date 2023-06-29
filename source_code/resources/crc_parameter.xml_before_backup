@@ -2,9 +2,9 @@
 <Arguments total="82" Description="crc arguments of detail">
   <Parametric_model name="自定义" ID="0">
     <Details width="?" polynomial_hex_abbreviation="?" initial_XOR_value_hex="?" result_XOR_value_hex="?" input_reverse_flag="?" output_reverse_flag="?"/>
-    <Polynomial_binary hex_completeness="0x?" hex_abbreviation="0x?">0</Polynomial_binary>
-    <Initial_XOR_value_binary>0</Initial_XOR_value_binary>
-    <Result_XOR_value_binary>0</Result_XOR_value_binary>
+    <Polynomial_binary hex_completeness="0x?" hex_abbreviation="0x?">?</Polynomial_binary>
+    <Initial_XOR_value_binary>?</Initial_XOR_value_binary>
+    <Result_XOR_value_binary>?</Result_XOR_value_binary>
     <Polynomial_formula>?</Polynomial_formula>
     <Polynomial_formula_LaTeX>?</Polynomial_formula_LaTeX>
     <Polynomial_description>自定义</Polynomial_description>
@@ -52,7 +52,7 @@
     <Initial_XOR_value_binary>11111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>11111</Result_XOR_value_binary>
     <Polynomial_formula>x5 + x2 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{5}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_LaTeX>x^{5}+x^{4}+x^{2}+1</Polynomial_formula_LaTeX>
     <Polynomial_description>USB token packets</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-6-CDMA2000-A" ID="6">
@@ -115,7 +115,7 @@
     <Initial_XOR_value_binary>1111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000</Result_XOR_value_binary>
     <Polynomial_formula>x7 + x6 + x5 + x2 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{7}+x^{6}+x^{5}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_LaTeX>x^{7}+x^{6}+x^{5}x^{2}+1</Polynomial_formula_LaTeX>
     <Polynomial_description>Train Communication Network, IEC 60870-5</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-8" ID="13">
@@ -295,7 +295,7 @@
     <Initial_XOR_value_binary>111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>000000000000</Result_XOR_value_binary>
     <Polynomial_formula>x12 + x11 + x10 + x9 + x8 + x4 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{12}+x^{11}+x^{10}+x^{9}+x^{8}+x^{4}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_LaTeX>x{12}+x{11}+x{10}+x{9}+x{8}+x{4}+x+1</Polynomial_formula_LaTeX>
     <Polynomial_description>mobile networks</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-12-GSM" ID="33">
@@ -304,7 +304,7 @@
     <Initial_XOR_value_binary>000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>000000000000</Result_XOR_value_binary>
     <Polynomial_formula>x12 + x11 + x10 + x8 + x5 + x4 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{12}+x^{11}+x^{10}+x^{8}+x^{5}+x^{4}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula_LaTeX>x{12}+x{11}+x{10}+x{8}+x{5}+x{4}+1</Polynomial_formula_LaTeX>
     <Polynomial_description>mobile networks</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-12-DECT" ID="34">
@@ -366,8 +366,8 @@
     <Polynomial_binary hex_completeness="0x12F15" hex_abbreviation="0x2F15">10010111100010101</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x13 + x11 + x10 + x9 + x8 + x4 + x2 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{13}+x^{11}+x^{10}+x^{9}+x^{8}+x^{4}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>Optimal for payloads ≤64 bits</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-ARINC" ID="41">
@@ -375,8 +375,8 @@
     <Polynomial_binary hex_completeness="0x1A02B" hex_abbreviation="0xA02B">11010000000101011</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x15 + x13 + x5 + x3 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{15}+x^{13}+x^{5}+x^{3}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>ACARS(Aircraft Communications Addressing and Reporting System) applications</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-CCITT" ID="42">
@@ -384,8 +384,8 @@
     <Polynomial_binary hex_completeness="0x11021" hex_abbreviation="0x1021">10001000000100001</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x12 + x5 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{12}+x^{5}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>X.25, V.41, HDLC FCS, XMODEM, Bluetooth, PACTOR, SD, DigRF, many others; known as CRC-CCITT; CRC-16-KERMIT (aka CRC-16 CCITT, CRC-16 CCITT-TRUE)</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-CDMA2000" ID="43">
@@ -393,8 +393,8 @@
     <Polynomial_binary hex_completeness="0x1C867" hex_abbreviation="0xC867">11100100001100111</Polynomial_binary>
     <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x15 + x14 + x11 + x6 + x5 + x2 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{15}+x^{14}+x^{11}+x^{6}+x^{5}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>mobile networks</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-DECT-R" ID="44">
@@ -402,8 +402,8 @@
     <Polynomial_binary hex_completeness="0x10589" hex_abbreviation="0x0589">10000010110001001</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000001</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x10 + x8 + x7 + x3 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{10}+x^{8}+x^{7}+x^{3}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-16 DECT-R (aka CRC-16 R-CRC)</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-DECT-X" ID="45">
@@ -411,8 +411,8 @@
     <Polynomial_binary hex_completeness="0x10589" hex_abbreviation="0x0589">10000010110001001</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x10 + x8 + x7 + x3 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{10}+x^{8}+x^{7}+x^{3}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-16 DECT-X (aka CRC-16 X-CRC)</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-T10-DIF" ID="46">
@@ -420,8 +420,8 @@
     <Polynomial_binary hex_completeness="0x18BB7" hex_abbreviation="0x8BB7">11000101110110111</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x15 + x11 + x9 + x8 + x7 + x5 + x4 + x2 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{15}+x^{11}+x^{9}+x^{8}+x^{7}+x^{5}+x^{4}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>SCSI(Small Computer System Interface) DIF</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-DNP" ID="47">
@@ -429,8 +429,8 @@
     <Polynomial_binary hex_completeness="0x13D65" hex_abbreviation="0x3D65">10011110101100101</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>1111111111111111</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x13 + x12 + x11 + x10 + x8 + x6 + x5 + x2 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{13}+x^{12}+x^{11}+x^{10}+x^{8}+x^{6}+x^{5}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>DNP, IEC 870, M-Bus</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-IBM" ID="48">
@@ -438,8 +438,8 @@
     <Polynomial_binary hex_completeness="0x18005" hex_abbreviation="0x8005">11000000000000101</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x15 + x2 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{15}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>Bisync, Modbus, USB, ANSI X3.28, SIA DC-07, many others; also known as CRC-16 and CRC-16-ANSI, CRC-16 ARC (aka CRC-16 IBM, CRC-16 LHA)</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-OpenSafety-A" ID="49">
@@ -447,8 +447,8 @@
     <Polynomial_binary hex_completeness="0x15935" hex_abbreviation="0x5935">10101100100110101</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x14 + x12 + x11 + x8 + x5 + x4 + x2 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{14}+x^{12}+x^{11}+x^{8}+x^{5}+x^{4}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>safety fieldbus</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-OpenSafety-B" ID="50">
@@ -456,8 +456,8 @@
     <Polynomial_binary hex_completeness="0x1755B" hex_abbreviation="0x755B">10111010101011011</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x14 + x13 + x12 + x10 + x8 + x6 + x4 + x3 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{14}+x^{13}+x^{12}+x^{10}+x^{8}+x^{6}+x^{4}+x^{3}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>safety fieldbus</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-Profibus" ID="51">
@@ -465,8 +465,8 @@
     <Polynomial_binary hex_completeness="0x11DCF" hex_abbreviation="0x1DCF">10001110111001111</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x12 + x11 + x10 + x8 + x7 + x6 + x3 + x2 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{12}+x^{11}+x^{10}+x^{8}+x^{7}+x^{6}+x^{3}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>fieldbus networks</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-BUYPASS" ID="52">
@@ -474,8 +474,8 @@
     <Polynomial_binary hex_completeness="0x18005" hex_abbreviation="0x8005">11000000000000101</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x15 + x2 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{15}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-16 BUYPASS (aka CRC-16 VERIFONE, CRC-16 UMTS)</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-CCITT-FALSE" ID="53">
@@ -483,8 +483,8 @@
     <Polynomial_binary hex_completeness="0x11021" hex_abbreviation="0x1021">10001000000100001</Polynomial_binary>
     <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x12 + x5 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{12}+x^{5}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-16 CCITT FALSE</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-CMS" ID="54">
@@ -492,8 +492,8 @@
     <Polynomial_binary hex_completeness="0x18005" hex_abbreviation="0x8005">11000000000000101</Polynomial_binary>
     <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x15 + x2 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{15}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-16 CMS (Cyclic Redundancy Check-16 for the CMS protocol) is a type of error-detecting code used in the Cryptographic Message Syntax (CMS) protocol. The CMS protocol is a widely-used standard for securing electronic messages, such as email, using digital signatures and encryption.</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-GENIBUS" ID="55">
@@ -501,8 +501,8 @@
     <Polynomial_binary hex_completeness="0x11021" hex_abbreviation="0x1021">10001000000100001</Polynomial_binary>
     <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>1111111111111111</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x12 + x5 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{12}+x^{5}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-16 GENIBUS (aka CRC-16 EPC, CRC-16 I-CODE, CRC-16 DARC)</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-MAXIM" ID="56">
@@ -510,8 +510,8 @@
     <Polynomial_binary hex_completeness="0x18005" hex_abbreviation="0x8005">11000000000000101</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>1111111111111111</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x15 + x2 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{15}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>MAXIM Integrated Products company. One example of how the CRC-16 MAXIM algorithm is used in a real-world application is in the communication between a microcontroller and a sensor device.</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-MCRF4XX" ID="57">
@@ -519,8 +519,8 @@
     <Polynomial_binary hex_completeness="0x11021" hex_abbreviation="0x1021">10001000000100001</Polynomial_binary>
     <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x12 + x5 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{12}+x^{5}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-16 MCRF4XX is a variant of the CRC-16 algorithm that is specifically designed for use in the Texas Instruments MCRF4XX family of radio frequency identification (RFID) chips. These chips are commonly used in applications such as access control, inventory management, and asset tracking.</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-MODBUS" ID="58">
@@ -528,8 +528,8 @@
     <Polynomial_binary hex_completeness="0x18005" hex_abbreviation="0x8005">11000000000000101</Polynomial_binary>
     <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x15 + x2 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{15}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-16 MODBUS is a variant of the CRC-16 algorithm that is commonly used in Modbus communication protocols. Modbus is a serial communication protocol used in industrial automation systems to connect electronic devices such as programmable logic controllers (PLCs), sensors, and other control devices.</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-USB" ID="59">
@@ -537,8 +537,8 @@
     <Polynomial_binary hex_completeness="0x18005" hex_abbreviation="0x8005">11000000000000101</Polynomial_binary>
     <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>1111111111111111</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x15 + x2 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{15}+x^{2}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-16 USB (Universal Serial Bus) is a variant of the CRC-16 algorithm that is used in the USB protocol for error detection. USB is a popular communication protocol used for connecting various devices such as computers, smartphones, printers, and other peripherals.</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-X-25" ID="60">
@@ -546,8 +546,8 @@
     <Polynomial_binary hex_completeness="0x11021" hex_abbreviation="0x1021">10001000000100001</Polynomial_binary>
     <Initial_XOR_value_binary>1111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>1111111111111111</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x12 + x5 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{12}+x^{5}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-16 X-25 (aka CRC-16 IBM-SDLC, CRC-16 ISO-HDLC, CRC-16 B); CRC-16 X-25 is a variant of the CRC-16 algorithm that is used in various communication protocols, including the X.25 packet-switched network protocol, IBM's Synchronous Data Link Control (SDLC) protocol, ISO's High-Level Data Link Control (HDLC) protocol, and others. This variant of the CRC-16 algorithm is also sometimes referred to as CRC-16 IBM-SDLC, CRC-16 ISO-HDLC, or CRC-16 B.</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-16-XMODEM" ID="61">
@@ -555,8 +555,8 @@
     <Polynomial_binary hex_completeness="0x11021" hex_abbreviation="0x1021">10001000000100001</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x16 + x12 + x5 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{16}+x^{12}+x^{5}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-16 XMODEM (aka CRC-16 ZMODEM, CRC-16 ACORN, CRC-16 LTE); CRC-16 XMODEM is a variant of the CRC-16 algorithm that is used in the XMODEM file transfer protocol, which is commonly used for transferring files between computers over a serial connection. This variant of the CRC-16 algorithm is also sometimes referred to as CRC-16 ZMODEM, CRC-16 ACORN, or CRC-16 LTE, depending on the specific application.</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-17-CAN" ID="62">
@@ -564,8 +564,8 @@
     <Polynomial_binary hex_completeness="0x3685B" hex_abbreviation="0x1685B">110110100001011011</Polynomial_binary>
     <Initial_XOR_value_binary>00000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>00000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x17 + x16 + x14 + x13 + x11 + x6 + x4 + x3 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{17}+x^{16}+x^{14}+x^{13}+x^{11}+x^{6}+x^{4}+x^{3}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CAN FD(CAN with Flexible Data-Rate Specification)</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-21-CAN" ID="63">
@@ -573,8 +573,8 @@
     <Polynomial_binary hex_completeness="0x302899" hex_abbreviation="0x102899">1100000010100010011001</Polynomial_binary>
     <Initial_XOR_value_binary>000000000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>000000000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x21 + x20 + x13 + x11 + x7 + x4 + x3 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{21}+x^{20}+x^{13}+x^{11}+x^{7}+x^{4}+x^{3}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CAN FD(CAN with Flexible Data-Rate Specification)</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-24-Radix-64" ID="64">
@@ -582,8 +582,8 @@
     <Polynomial_binary hex_completeness="0x1864CFB" hex_abbreviation="0x864CFB">1100001100100110011111011</Polynomial_binary>
     <Initial_XOR_value_binary>101101110000010011001110</Initial_XOR_value_binary>
     <Result_XOR_value_binary>000000000000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x24 + x23 + x18 + x17 + x14 + x11 + x10 + x7 + x6 + x5 + x4 + x3 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{24}+x^{23}+x^{18}+x^{17}+x^{14}+x^{11}+x^{10}+x^{7}+x^{6}+x^{5}+x^{4}+x^{3}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>OpenPGP, RTCM104v3; CRC-24 OPENPGP</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-24-FlexRay-A" ID="65">
@@ -591,8 +591,8 @@
     <Polynomial_binary hex_completeness="0x15D6DCB" hex_abbreviation="0x5D6DCB">1010111010110110111001011</Polynomial_binary>
     <Initial_XOR_value_binary>111111101101110010111010</Initial_XOR_value_binary>
     <Result_XOR_value_binary>000000000000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x24 + x22 + x20 + x19 + x18 + x16 + x14 + x13 + x11 + x10 + x8 + x7 + x6 + x3 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{24}+x^{22}+x^{20}+x^{19}+x^{18}+x^{16}+x^{14}+x^{13}+x^{11}+x^{10}+x^{8}+x^{7}+x^{6}+x^{3}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>FlexRay is an automotive network communications protocol developed by the FlexRay Consortium to govern on-board automotive computing.</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-24-FlexRay-B" ID="66">
@@ -600,8 +600,8 @@
     <Polynomial_binary hex_completeness="0x15D6DCB" hex_abbreviation="0x5D6DCB">1010111010110110111001011</Polynomial_binary>
     <Initial_XOR_value_binary>101010111100110111101111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>000000000000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x24 + x22 + x20 + x19 + x18 + x16 + x14 + x13 + x11 + x10 + x8 + x7 + x6 + x3 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{24}+x^{22}+x^{20}+x^{19}+x^{18}+x^{16}+x^{14}+x^{13}+x^{11}+x^{10}+x^{8}+x^{7}+x^{6}+x^{3}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>FlexRay is an automotive network communications protocol developed by the FlexRay Consortium to govern on-board automotive computing.</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-24-LTE-A/NR-A" ID="67">
@@ -609,8 +609,8 @@
     <Polynomial_binary hex_completeness="0x1864CFB" hex_abbreviation="0x864CFB">1100001100100110011111011</Polynomial_binary>
     <Initial_XOR_value_binary>000000000000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>000000000000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x24 + x23 + x18 + x17 + x14 + x11 + x10 + x7 + x6 + x5 + x4 + x3 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{24}+x^{23}+x^{18}+x^{17}+x^{14}+x^{11}+x^{10}+x^{7}+x^{6}+x^{5}+x^{4}+x^{3}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-24 LTE-A/NR-A is a variant of the cyclic redundancy check (CRC) algorithm that is used in Long-Term Evolution Advanced (LTE-A) and New Radio (NR) wireless communication systems.</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-24-WCDMA" ID="68">
@@ -618,8 +618,8 @@
     <Polynomial_binary hex_completeness="0x1800063" hex_abbreviation="0x800063">1100000000000000001100011</Polynomial_binary>
     <Initial_XOR_value_binary>000000000000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>000000000000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x24 + x23 + x6 + x5 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{24}+x^{23}+x^{6}+x^{5}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-24 LTE-B/NR-B; Used in OS-9 RTOS. Residue = 0x800FE3.</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-24-NR-C" ID="69">
@@ -627,8 +627,8 @@
     <Polynomial_binary hex_completeness="0x1B2B117" hex_abbreviation="0xB2B117">1101100101011000100010111</Polynomial_binary>
     <Initial_XOR_value_binary>000000000000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>000000000000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x24 + x23 + x21 + x20 + x17 + x15 + x13 + x12 + x8 + x4 + x2 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{24}+x^{23}+x^{21}+x^{20}+x^{17}+x^{15}+x^{13}+x^{12}+x^{8}+x^{4}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-24 NR-C</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-30" ID="70">
@@ -636,8 +636,8 @@
     <Polynomial_binary hex_completeness="0x6030B9C7" hex_abbreviation="0x2030B9C7">1100000001100001011100111000111</Polynomial_binary>
     <Initial_XOR_value_binary>111111111111111111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>000000000000000000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x30 + x29 + x21 + x20 + x15 + x13 + x12 + x11 + x8 + x7 + x6 + x2 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{30}+x^{29}+x^{21}+x^{20}+x^{15}+x^{13}+x^{12}+x^{11}+x^{8}+x^{7}+x^{6}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-30 CDMA(Code-division multiple access is a channel access method used by various radio communication technologies.)</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-32" ID="71">
@@ -645,8 +645,8 @@
     <Polynomial_binary hex_completeness="0x104C11DB7" hex_abbreviation="0x04C11DB7">100000100110000010001110110110111</Polynomial_binary>
     <Initial_XOR_value_binary>11111111111111111111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>11111111111111111111111111111111</Result_XOR_value_binary>
-    <Polynomial_formula>x32 + x26 + x23 + x22 + x16 + x12 + x11 + x10 + x8 + x7 + x5 + x4 + x2 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{32}+x^{26}+x^{23}+x^{22}+x^{16}+x^{12}+x^{11}+x^{10}+x^{8}+x^{7}+x^{5}+x^{4}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-32 (aka CRC-32 ADCCP, CRC-32 PKZip)</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-32-BZIP2" ID="72">
@@ -654,8 +654,8 @@
     <Polynomial_binary hex_completeness="0x104C11DB7" hex_abbreviation="0x04C11DB7">100000100110000010001110110110111</Polynomial_binary>
     <Initial_XOR_value_binary>11111111111111111111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>11111111111111111111111111111111</Result_XOR_value_binary>
-    <Polynomial_formula>x32 + x26 + x23 + x22 + x16 + x12 + x11 + x10 + x8 + x7 + x5 + x4 + x2 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{32}+x^{26}+x^{23}+x^{22}+x^{16}+x^{12}+x^{11}+x^{10}+x^{8}+x^{7}+x^{5}+x^{4}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-32 BZIP2 (aka CRC-32 AAL5, CRC-32 DECT-B, CRC-32 B-CRC)</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-32-MPEG-2" ID="73">
@@ -663,8 +663,8 @@
     <Polynomial_binary hex_completeness="0x104C11DB7" hex_abbreviation="0x04C11DB7">100000100110000010001110110110111</Polynomial_binary>
     <Initial_XOR_value_binary>11111111111111111111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>00000000000000000000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x32 + x26 + x23 + x22 + x16 + x12 + x11 + x10 + x8 + x7 + x5 + x4 + x2 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{32}+x^{26}+x^{23}+x^{22}+x^{16}+x^{12}+x^{11}+x^{10}+x^{8}+x^{7}+x^{5}+x^{4}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-32 MPEG-2</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-32-POSIX" ID="74">
@@ -672,8 +672,8 @@
     <Polynomial_binary hex_completeness="0x104C11DB7" hex_abbreviation="0x04C11DB7">100000100110000010001110110110111</Polynomial_binary>
     <Initial_XOR_value_binary>00000000000000000000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>11111111111111111111111111111111</Result_XOR_value_binary>
-    <Polynomial_formula>x32 + x26 + x23 + x22 + x16 + x12 + x11 + x10 + x8 + x7 + x5 + x4 + x2 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{32}+x^{26}+x^{23}+x^{22}+x^{16}+x^{12}+x^{11}+x^{10}+x^{8}+x^{7}+x^{5}+x^{4}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-32 POSIX</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-32-C" ID="75">
@@ -681,8 +681,8 @@
     <Polynomial_binary hex_completeness="0x11EDC6F41" hex_abbreviation="0x1EDC6F41">100011110110111000110111101000001</Polynomial_binary>
     <Initial_XOR_value_binary>11111111111111111111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>11111111111111111111111111111111</Result_XOR_value_binary>
-    <Polynomial_formula>x32 + x28 + x27 + x26 + x25 + x23 + x22 + x20 + x19 + x18 + x14 + x13 + x11 + x10 + x9 + x8 + x6 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{32}+x^{28}+x^{27}+x^{26}+x^{25}+x^{23}+x^{22}+x^{20}+x^{19}+x^{18}+x^{14}+x^{13}+x^{11}+x^{10}+x^{9}+x^{8}+x^{6}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-32 C (aka CRC-32 ISCSI, CRC-32 Castagnoli, CRC-32 Interlaken); iSCSI, SCTP, G.hn payload, SSE4.2, Btrfs, ext4, Ceph</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-32-K" ID="76">
@@ -690,8 +690,8 @@
     <Polynomial_binary hex_completeness="0x1741B8CD7" hex_abbreviation="0x741B8CD7">101110100000110111000110011010111</Polynomial_binary>
     <Initial_XOR_value_binary>00000000000000000000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>00000000000000000000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x32 + x30 + x29 + x28 + x26 + x20 + x19 + x17 + x16 + x15 + x11 + x10 + x7 + x6 + x4 + x2 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{32}+x^{30}+x^{29}+x^{28}+x^{26}+x^{20}+x^{19}+x^{17}+x^{16}+x^{15}+x^{11}+x^{10}+x^{7}+x^{6}+x^{4}+x^{2}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-32K (Koopman {1,3,28}); Excellent at Ethernet frame length, poor performance with long files</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-32-K2" ID="77">
@@ -699,8 +699,8 @@
     <Polynomial_binary hex_completeness="0x132583499" hex_abbreviation="0x32583499">100110010010110000011010010011001</Polynomial_binary>
     <Initial_XOR_value_binary>00000000000000000000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>00000000000000000000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x32 + x29 + x28 + x25 + x22 + x20 + x19 + x13 + x12 + x10 + x7 + x4 + x3 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{32}+x^{29}+x^{28}+x^{25}+x^{22}+x^{20}+x^{19}+x^{13}+x^{12}+x^{10}+x^{7}+x^{4}+x^{3}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>CRC-32K2 (Koopman {1,1,30}); Excellent at Ethernet frame length, poor performance with long files</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-32-Q" ID="78">
@@ -708,8 +708,8 @@
     <Polynomial_binary hex_completeness="0x1814141AB" hex_abbreviation="0x814141AB">110000001010000010100000110101011</Polynomial_binary>
     <Initial_XOR_value_binary>00000000000000000000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>00000000000000000000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x32 + x31 + x24 + x22 + x16 + x14 + x8 + x7 + x5 + x3 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{32}+x^{31}+x^{24}+x^{22}+x^{16}+x^{14}+x^{8}+x^{7}+x^{5}+x^{3}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>aviation; AIXM(Aeronautical Information Exchange Model)</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-40-GSM" ID="79">
@@ -717,8 +717,8 @@
     <Polynomial_binary hex_completeness="0x10004820009" hex_abbreviation="0x0004820009">10000000000000100100000100000000000001001</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000000000000000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>1111111111111111111111111111111111111111</Result_XOR_value_binary>
-    <Polynomial_formula>x40 + x26 + x23 + x17 + x3 + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{40}+x^{26}+x^{23}+x^{17}+x^{3}+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>GSM(Global System for Mobile Communications) control channel</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-64-ECMA" ID="80">
@@ -726,8 +726,8 @@
     <Polynomial_binary hex_completeness="0x142F0E1EBA9EA3693" hex_abbreviation="0x42F0E1EBA9EA3693">10100001011110000111000011110101110101001111010100011011010010011</Polynomial_binary>
     <Initial_XOR_value_binary>0000000000000000000000000000000000000000000000000000000000000000</Initial_XOR_value_binary>
     <Result_XOR_value_binary>0000000000000000000000000000000000000000000000000000000000000000</Result_XOR_value_binary>
-    <Polynomial_formula>x64 + x62 + x57 + x55 + x54 + x53 + x52 + x47 + x46 + x45 + x40 + x39 + x38 + x37 + x35 + x33 + x32 + x31 + x29 + x27 + x24 + x23 + x22 + x21 + x19 + x17 + x13 + x12 + x10 + x9 + x7 + x4 + x + 1</Polynomial_formula>
-    <Polynomial_formula_LaTeX>x^{64}+x^{62}+x^{57}+x^{55}+x^{54}+x^{53}+x^{52}+x^{47}+x^{46}+x^{45}+x^{40}+x^{39}+x^{38}+x^{37}+x^{35}+x^{33}+x^{32}+x^{31}+x^{29}+x^{27}+x^{24}+x^{23}+x^{22}+x^{21}+x^{19}+x^{17}+x^{13}+x^{12}+x^{10}+x^{9}+x^{7}+x^{4}+x+1</Polynomial_formula_LaTeX>
+    <Polynomial_formula>xxxx</Polynomial_formula>
+    <Polynomial_formula_LaTeX>xxxxxxxx</Polynomial_formula_LaTeX>
     <Polynomial_description>ECMA-182 p. 51, XZ Utils</Polynomial_description>
   </Parametric_model>
   <Parametric_model name="CRC-64-ISO" ID="81">
@@ -735,7 +735,7 @@
     <Polynomial_binary hex_completeness="0x1000000000000001B" hex_abbreviation="0x000000000000001B">10000000000000000000000000000000000000000000000000000000000011011</Polynomial_binary>
     <Initial_XOR_value_binary>1111111111111111111111111111111111111111111111111111111111111111</Initial_XOR_value_binary>
     <Result_XOR_value_binary>1111111111111111111111111111111111111111111111111111111111111111</Result_XOR_value_binary>
-    <Polynomial_formula>x64 + x4 + x3 + x + 1</Polynomial_formula>
+    <Polynomial_formula>xxxx</Polynomial_formula>
     <Polynomial_formula_LaTeX>x^{64}+x^{4}+x^{3}+x+1</Polynomial_formula_LaTeX>
     <Polynomial_description>ISO 3309 (HDLC), Swiss-Prot/TrEMBL; considered weak for hashing</Polynomial_description>
   </Parametric_model>

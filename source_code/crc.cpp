@@ -1,7 +1,11 @@
 
 #include "crc.h"
 #include "ui_crc.h"
-
+#define LEARNING_XML 0 ////learning XML class
+#define GENERATE_FORMULA 0 ////generate formula from binary polynomial by xml file
+//#define DEBUG_INFO ////日志宏
+#define MODIFY_VALUE_OF_NODE 1 ////修改xml中节点的值
+#define WRITE_WITH_TRUNCATE 1 ////用Truncate方式写入xml文件中
 
 crc::crc(QWidget *parent)
     : QWidget(parent)
@@ -14,12 +18,22 @@ crc::crc(QWidget *parent)
     size_policy.setRetainSizeWhenHidden(true);
     ui->label_tips->setSizePolicy(size_policy);
     ui->label_tips->hide();
+    ui->comboBox->setCurrentIndex(-1);
 
     input_file = new std::vector<bool>;
     Math_ML = new QtMmlWidget;
     Math_ML->setAttribute(Qt::WA_QuitOnClose, false); //Makes Qt quit the application when the last widget with the attribute set has accepted closeEvent().
-    //initialize_xml(); //learning XML class.
+#if LEARNING_XML
+    initialize_xml(); //learning XML class.
+#endif
+#if GENERATE_FORMULA
     generate_formula(); //generate formula from binary polynomial by xml file.
+#endif
+#ifdef USING_XML_RECORD_TEXT
+    current_id = -1;
+    all_data.clear();
+    init_xml(); //读取xml文件里面的值用于comboBox的显示
+#endif
 }
 
 crc::~crc()
@@ -131,13 +145,16 @@ void crc::initialize_xml()
 void crc::generate_formula()
 {
     // 打开文件
-    QFile file(":/xml_file/resources/crc_parameter.xml");
+    QFile file("./crc_parameter.xml");
     if (!file.open(QFileDevice::ReadOnly)) {
         QMessageBox::information(Q_NULLPTR, "Error!", "XML file failed to open.");
+        qDebug() << "error code:" << file.error() << "\terror string:" << file.errorString();
         return ;
     }
-    qDebug() << "file size:" << file.size();
-    qDebug() << "sizeof file:" << sizeof(file);
+#ifdef DEBUG_INFO
+    qInfo() << "file size:" << file.size();
+    qInfo() << "sizeof file:" << sizeof(file);
+#endif
 
     //从IO设备中读取XML文件，如果内容被成功解析返回true，否则返回false
     QDomDocument doc;
@@ -146,14 +163,231 @@ void crc::generate_formula()
         file.close(); //别忘了关闭文件
         return ;
     }
-    qDebug() << "sizeof doc:" << sizeof(doc);
-
-    // 获得根节点
-    QDomElement root = doc.documentElement();
-    qDebug() << "root name:" << root.nodeName();
-
     file.close();
+#ifdef DEBUG_INFO
+    qInfo() << "sizeof doc:" << sizeof(doc);
+#endif
+
+    //获得根节点
+    QDomElement root = doc.documentElement();
+#ifdef DEBUG_INFO
+    qInfo() << "root name:" << root.nodeName();
+    qInfo() << "sizeof root:" << sizeof(root);
+#endif
+
+    //获取所有Parametric_model的节点
+    QDomNodeList list = root.elementsByTagName(root.firstChildElement().nodeName());
+    #ifdef DEBUG_INFO
+{
+    qInfo() << "root.firstChildElement().nodeName():" << root.firstChildElement().nodeName();
+    qInfo() << "list size():" << list.size();
+    qInfo() << "list count():" << list.count();
+    qInfo() << "sizeof list:" << sizeof(list);
+    for (int i = 0; i < list.count(); i++) {
+            QDomElement element = list.at(i).toElement().childNodes().at(1).toElement();
+            qDebug() << "element name:" << element.nodeName();
+            qDebug() << "element value:" << element.nodeValue();
+            qDebug() << "element type:" << element.nodeType();
+            qInfo() << list.at(i).toElement().namedItem(QString("Polynomial_binary")).firstChild().nodeName();
+            qInfo() << list.at(i).toElement().namedItem(QString("Polynomial_binary")).firstChild().nodeValue();;
+            qInfo() << list.at(i).toElement().namedItem(QString("Polynomial_binary")).firstChild().nodeType();
+        }
+        /*
+        //c++11：
+        for (QDomNode node : list) {
+            qInfo() << node.toElement().nodeName();
+            qInfo() << node.toElement().nodeValue();
+        }
+        //尝试使用foreach，发现这样不行：
+        foreach (QDomNode node, list) {
+            qInfo() << node.toElement().nodeName();
+            qInfo() << node.toElement().nodeValue();
+        }
+        */
 }
+    #endif
+
+    //获取节点的值
+    for (int i = 1; i < list.count(); i++) {
+        QDomElement element = list.at(i).toElement();
+        QByteArray poly = element.namedItem(QString("Polynomial_binary")).firstChild().nodeValue().toLocal8Bit();
+        QString Polynomial_formula, Polynomial_formula_LaTeX; //两个最终的表达式
+        for (int j = 0, k = poly.size() - 1; j < poly.size(); j++, k--) {
+            if (poly.at(j) == '1') {
+                if (k) {
+                    Polynomial_formula.append("x");
+                    Polynomial_formula_LaTeX.append("x");
+                    if (1 ^ k) {
+                        Polynomial_formula.append(QString::number(k));
+                        Polynomial_formula_LaTeX.append("^{");
+                        Polynomial_formula_LaTeX.append(QString::number(k));
+                        Polynomial_formula_LaTeX.append("}");
+                    }
+                    Polynomial_formula_LaTeX.append("+");
+                    Polynomial_formula.append(" + ");
+                } else {
+                    Polynomial_formula.append("1");
+                    Polynomial_formula_LaTeX.append("1");
+                }
+            }
+        }
+#ifdef DEBUG_INFO
+        qInfo() << "i:" << i << "poly:" << poly;
+        QString xml_formula = list.at(i).toElement().namedItem(QString("Polynomial_formula")).firstChild().nodeValue();
+        QString xml_formula_LaTeX = list.at(i).toElement().namedItem(QString("Polynomial_formula_LaTeX")).firstChild().nodeValue();
+        qInfo() << "Polynomial_formula:" << Polynomial_formula;
+        qInfo() << "xml formula:" << xml_formula;
+        qInfo() << "is equal?" << (xml_formula == Polynomial_formula);
+
+        qInfo() << "Polynomial_formula_LaTeX:" << Polynomial_formula_LaTeX;
+        qInfo() << "xml formula LaTeX:" << xml_formula_LaTeX;
+        qInfo() << "is equal?" << (xml_formula_LaTeX == Polynomial_formula_LaTeX);
+#endif
+
+#if (MODIFY_VALUE_OF_NODE & GENERATE_FORMULA) //以下为修改节点的值
+{
+        //替换Polynomial_formula节点的值：
+        QDomNode node = element.namedItem(QString("Polynomial_formula"));
+        QDomNode old_node, new_node; //用于新旧内容字节的的替换，通过这种方式来修改xml尖括号里面的值。
+        old_node = node.firstChild();
+        #ifdef DEBUG_INFO
+        qDebug() << "before change,the value is" << old_node.nodeValue();
+        qDebug() << "old value:" << node.toElement().text(); //这两种是一样的，只不过是把QDomNode转为QDomElement，然后再取element的text。
+        #endif
+        node.firstChild().setNodeValue(Polynomial_formula);
+        ////注意！，这里如果节点值为空，例如：<Polynomial_formula></Polynomial_formula>中间是没有值的，这样的话setNodeValue()设置不上去。
+        #ifdef DEBUG_INFO
+        qDebug() << "after change,the value is" << node.toElement().text();
+        #endif
+        new_node = node.firstChild();
+        #ifdef DEBUG_INFO
+        qDebug() << "new value:" << new_node.nodeValue();
+        #endif
+        node.replaceChild(new_node, old_node);
+        //替换Polynomial_formula_LaTeX节点的值：
+        node = element.namedItem(QString("Polynomial_formula_LaTeX"));
+        old_node = node.firstChild();
+        node.firstChild().setNodeValue(Polynomial_formula_LaTeX);
+        new_node = node.firstChild();
+        node.replaceChild(new_node, old_node);
+}
+#endif
+    }
+#if (WRITE_WITH_TRUNCATE & GENERATE_FORMULA) //写入xml文件
+{
+    #ifdef DEBUG_INFO
+    //如果打开qt的资源文件先读后写这里会打开失败
+    qInfo() << "file.exists():" << file.exists() << "\tfile.fileName():" << file.fileName() << "\tfile.error():" << file.error() << "\tfile.errorString():" << file.errorString() << "\tfile.isOpen():" << file.isOpen();
+    #endif
+    //写入xml文件
+    if (!file.open(QFileDevice::WriteOnly | QIODevice::Truncate)) {
+        QMessageBox::information(Q_NULLPTR, "Error!", "XML file failed to open.");
+        qDebug() << "error code:" << file.error() << "\terror string:" << file.errorString();
+        return ;
+    }
+    QTextStream stream(&file);
+    doc.save(stream, 2);
+    file.close();
+    file.flush();
+}
+#endif
+}
+
+#ifdef USING_XML_RECORD_TEXT
+//使用xml里面记录的值来设置comboBox的显示和lineEdit里面的内容
+void crc::init_xml()
+{
+    QFile file(QString(":/xml_file/resources/crc_parameter.xml"));
+    if (!file.open(QFileDevice::ReadOnly)) {
+        QMessageBox::information(Q_NULLPTR, "Error!", "XML file failed to open.");
+        qDebug() << "error code:" << file.error() << "\terror string:" << file.errorString();
+        return ;
+    }
+    QDomDocument doc;
+    if (!doc.setContent(&file)) {
+        QMessageBox::information(Q_NULLPTR, "WARNNING!", "It's not XML file.");
+        file.close(); //别忘了关闭文件
+        return ;
+    }
+    file.close();
+    QDomElement root = doc.documentElement();
+    QDomNodeList list = root.elementsByTagName(root.firstChildElement().nodeName());
+
+    //read data from xml file
+    all_data.clear();
+//    all_data.resize(list.count()); //all_data[0]为自定义数据
+    for (int i = 0; i < list.count(); i++) {
+        QDomElement element = list.at(i).toElement();
+        QDomElement details = element.namedItem(QString("Details")).toElement();
+        QString fomula = element.namedItem(QString("Polynomial_formula_LaTeX")).firstChild().nodeValue();
+        fomula.remove(QChar('{')).remove(QChar('}'));
+        QBitArray poly, init, xorout;
+        bool flag = false;
+        flag = crc::QStringBin_to_QBitArrayBin(element.namedItem(QString("Polynomial_binary")).firstChild().nodeValue(), poly);
+        flag = crc::QStringBin_to_QBitArrayBin(element.namedItem(QString("Initial_XOR_value_binary")).firstChild().nodeValue(), init);
+        flag = crc::QStringBin_to_QBitArrayBin(element.namedItem(QString("Result_XOR_value_binary")).firstChild().nodeValue(), xorout);
+        Q_ASSERT_X(flag, "QStringBin_to_QBitArrayBin", "convert failed!");
+        crc_info info(
+                    element.attribute(QString("ID")).toShort(),
+                    element.attribute(QString("name")),
+                    fomula,
+                    details.attribute(QString("width")).toUInt(),
+                    poly,
+                    details.attribute(QString("polynomial_hex_abbreviation")),
+                    init,
+                    details.attribute(QString("initial_XOR_value_hex")),
+                    xorout,
+                    details.attribute(QString("result_XOR_value_hex")),
+                    (details.attribute(QString("input_reverse_flag")) == QString("1") ? true : false),
+                    (details.attribute(QString("output_reverse_flag")) == QString("1") ? true : false));
+        all_data.push_back(info); //自定义容器的append和push_back时，会调用默认的拷贝构造函数
+        info.clear();
+    }
+
+    qint32 fix_width = 0;
+    for (VectorInfo::const_iterator it = all_data.constBegin(); it != all_data.constEnd(); ++it) {
+        if (fix_width < it->getParameter_name().length()) {
+            fix_width = it->getParameter_name().length();
+        }
+        qInfo() << "ID:" << it->at(0) << " width:" << it->getWidth();
+        #ifdef DEBUG_INFO
+        qInfo() << "combobox string:" << str_cbx;
+        qInfo() << "ID:" << it->at(0) << " width:" << it->getWidth();
+        qInfo() << "parameter name:" << it->getParameter_name();
+        qInfo() << "formula:" << it->getFormula();
+        qInfo() << "poly_bin:" << it->getPoly();
+        qInfo() << "poly_hex:" << it->getPoly_hex();
+        qInfo() << "init_bin:" << it->getInit();
+        qInfo() << "init_hex:" << it->getInit_hex();
+        qInfo() << "xorout_bin:" << it->getXorout();
+        qInfo() << "xorout_hex:" << it->getXorout_hex();
+        qInfo() << "reverse_in:" << it->getReverse_in() << " reverse_out:" << it->getReverse_out() << endl;
+        #endif
+    }
+    QStringList stringlist;
+    for (VectorInfo::const_iterator it = all_data.constBegin(); it != all_data.constEnd(); ++it) {
+
+        QString str_cbbx;
+        str_cbbx.append(it->getParameter_name());
+        forever {
+            if (str_cbbx.length() > fix_width) break;
+            str_cbbx.append(QChar(' '));
+        }
+        if (it != all_data.constBegin()) str_cbbx.append(it->getFormula());
+        stringlist.append(str_cbbx);
+    }
+    ui->comboBox->clear();
+    ui->comboBox->addItems(stringlist);
+    int max_size = 0;
+    for (int i = 0; i < ui->comboBox->count(); i++) {
+        if (max_size < ui->comboBox->itemText(i).length()) max_size = ui->comboBox->itemText(i).length();
+    }
+    int point_value = ui->comboBox->font().pointSize(); //获取字体的磅值
+    ui->comboBox->setFixedWidth(1024); //设置ComboBox本身的宽度
+    //设置ComboBox的下拉框显示的宽度，适应于最长的一项显示
+    ui->comboBox->view()->setFixedWidth(point_value * max_size * 0.75);
+}
+#endif
 
 bool crc::crc_algorithm(const QBitArray * const input, const uint &width, const QBitArray &poly, const QBitArray &init, const QBitArray &xorout, const bool &reverse_in, const bool &reverse_out, QBitArray &result)
 {
@@ -372,23 +606,44 @@ bool crc::specification_check()
 
 void crc::save_all_data()
 {
-    refin_flag = ui->checkBox_refin->isChecked();
-    refout_flag = ui->checkBox_refout->isChecked();
-    width_crc = ui->spinBox_width->value();
-
     if (checked_input.size() & 1) {
         checked_input.prepend("0");
     }
-    QString_to_QBitArray(checked_input, input_binary);
+    QStringHex_to_QBitArrayBin(checked_input, input_binary);
+
+#ifdef USING_XML_RECORD_TEXT
+    if (!current_id) { //自定义时
+        refin_flag = ui->checkBox_refin->isChecked();
+        refout_flag = ui->checkBox_refout->isChecked();
+        width_crc = ui->spinBox_width->value();
+        if (width_crc >= 8) {
+            checked_poly.prepend(QChar('1'));
+        }
+        QStringHex_to_QBitArrayBin(checked_poly, poly_binary);
+        QStringHex_to_QBitArrayBin(checked_init, init_binary);
+        QStringHex_to_QBitArrayBin(checked_xorout, xorout_binary);
+        return ;
+    }
+    refin_flag = all_data.at(current_id).getReverse_in();
+    refout_flag = all_data.at(current_id).getReverse_out();
+    width_crc = all_data.at(current_id).getWidth();
+    poly_binary = all_data.at(current_id).getPoly();
+    init_binary = all_data.at(current_id).getInit();
+    xorout_binary = all_data.at(current_id).getXorout();
+#else
+    refin_flag = ui->checkBox_refin->isChecked();
+    refout_flag = ui->checkBox_refout->isChecked();
+    width_crc = ui->spinBox_width->value();
     if (width_crc >= 8) {
         checked_poly.prepend(QChar('1'));
     } //polynomial will change when width less than 8.
-    QString_to_QBitArray(checked_poly, poly_binary);
-    QString_to_QBitArray(checked_init, init_binary);
-    QString_to_QBitArray(checked_xorout, xorout_binary);
+    QStringHex_to_QBitArrayBin(checked_poly, poly_binary);
+    QStringHex_to_QBitArrayBin(checked_init, init_binary);
+    QStringHex_to_QBitArrayBin(checked_xorout, xorout_binary);
+#endif
 }
 
-void crc::QString_to_QBitArray(const QString &strings, QBitArray &bit_array)
+void crc::QStringHex_to_QBitArrayBin(const QString &strings, QBitArray &bit_array)
 {
     bit_array.clear();
     bit_array.resize(strings.size() * 4);
@@ -414,6 +669,31 @@ void crc::QString_to_QBitArray(const QString &strings, QBitArray &bit_array)
 //也可以用xml文件来记录值
 void crc::on_comboBox_currentIndexChanged(int index)
 {
+#ifdef USING_XML_RECORD_TEXT
+    current_id = index;
+    if (!~index) return ; //初次启动会使得index为-1
+    if (!index) {
+        //自定义
+        ui->lineEdit_poly->clear();
+        poly_binary.clear();
+        ui->lineEdit_init->clear();
+        init_binary.clear();
+        ui->lineEdit_xorout->clear();
+        xorout_binary.clear();
+        ui->checkBox_refin->setCheckState(Qt::Unchecked);
+        refin_flag = ui->checkBox_refin->isChecked();
+        ui->checkBox_refout->setCheckState(Qt::Unchecked);
+        refout_flag = ui->checkBox_refout->isChecked();
+        return ;
+    }
+    Q_ASSERT_X(index == (int)all_data.at(index).at(0), "comboBox", "index is not equal to id!");
+    ui->spinBox_width->setValue(all_data.at(index).getWidth());
+    ui->lineEdit_poly->setText(all_data.at(index).getPoly_hex());
+    ui->lineEdit_init->setText(all_data.at(index).getInit_hex());
+    ui->lineEdit_xorout->setText(all_data.at(index).getXorout_hex());
+    ui->checkBox_refin->setCheckState((all_data.at(index).getReverse_in() ? Qt::Checked : Qt::Unchecked));
+    ui->checkBox_refout->setCheckState((all_data.at(index).getReverse_out() ? Qt::Checked : Qt::Unchecked));
+#else
     switch (index) {
     case 0:
         //自定义
@@ -599,6 +879,7 @@ void crc::on_comboBox_currentIndexChanged(int index)
     default:
         break;
     }
+#endif
 
     if (__builtin_expect(!!(index), 1)) {
         ui->spinBox_width->setCursor(Qt::ForbiddenCursor);

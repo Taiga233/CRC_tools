@@ -11,11 +11,79 @@
 
 #include "qtmmlwidget.h"
 
-
+#define USING_XML_RECORD_TEXT ////using xml file set edit text
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class crc; }
 QT_END_NAMESPACE
+
+#ifdef USING_XML_RECORD_TEXT
+#pragma pack(4) //因为是32位编译的，所以qt类为4字节
+typedef struct CRC_INFO {
+private:
+    QString parameter_name;
+    QString formula;
+    quint32 width;
+    QBitArray poly;
+    QString poly_hex;
+    QBitArray init;
+    QString init_hex;
+    QBitArray xorout;
+    QString xorout_hex;
+    qint16 id;
+    bool reverse_in;
+    bool reverse_out;
+
+public:
+    //结构体的初始化
+//    CRC_INFO() = default; //warning: defaulted and deleted functions only available with -std=c++11 or -std=gnu++11
+    CRC_INFO() {} //默认的构造函数
+    explicit CRC_INFO(const qint16 &id, const QString &parameter_name, const QString &formula, const quint32 &width, const QBitArray &poly, const QString &poly_hex, const QBitArray &init, const QString &init_hex, const QBitArray &xorout, const QString &xorout_hex, const bool &reverse_in, const bool &reverse_out) {
+        this->id = id;
+        this->parameter_name = parameter_name;
+        this->formula = formula;
+        this->width = width;
+        this->poly = poly;
+        this->poly_hex = poly_hex;
+        this->init = init;
+        this->init_hex = init_hex;
+        this->xorout = xorout;
+        this->xorout_hex = xorout_hex;
+        this->reverse_in = reverse_in;
+        this->reverse_out = reverse_out;
+    }
+
+//    qint16 & operator [](const int i) { Q_ASSERT(i >= 0); if (!i) return this->id;}
+    const qint16 & at(int i) const { Q_ASSERT(i == 0); return this->id;}
+
+    void clear() {
+        id = -1;
+        parameter_name.clear();
+        formula.clear();
+        width = 0;
+        poly.clear();
+        poly_hex.clear();
+        init.clear();
+        init_hex.clear();
+        xorout.clear();
+        xorout_hex.clear();
+        reverse_in = false;
+        reverse_out = false;
+    }
+    const QString getParameter_name() const {return parameter_name;}
+    QString getFormula() const {return formula;}
+    quint32 getWidth() const {return width;}
+    QBitArray getPoly() const {return poly;}
+    QString getPoly_hex() const {return poly_hex;}
+    QBitArray getInit() const {return init;}
+    QString getInit_hex() const {return init_hex;}
+    QBitArray getXorout() const {return xorout;}
+    QString getXorout_hex() const {return xorout_hex;}
+    bool getReverse_in() const {return reverse_in;}
+    bool getReverse_out() const {return reverse_out;}
+} crc_info;
+#pragma pack()
+#endif
 
 class crc : public QWidget
 
@@ -27,17 +95,29 @@ public:
     ~crc();
     void initialize_xml();
     void generate_formula();
+#ifdef USING_XML_RECORD_TEXT
+    void init_xml();
+#endif
 
     static bool crc_algorithm(const QBitArray* const input, const uint &width, const QBitArray &poly, const QBitArray &init, const QBitArray &xorout, const bool &reverse_in, const bool &reverse_out, QBitArray &result);
     static bool crc_algorithm(const std::vector<bool>* const input, const uint &width, const QBitArray &poly, const QBitArray &init, const QBitArray &xorout, const bool &reverse_in, const bool &reverse_out, QBitArray &result);
     static bool reverse_all(QBitArray &data_array, int data_size = -1);
     static bool reverse_byte(QBitArray &data_array, int data_size = -1);
     static void simplify(QBitArray &bit_array); //remove QBitArray front zero
+    static bool QStringBin_to_QBitArrayBin(const QString &strings, QBitArray &bit) {
+        if (strings.isEmpty()) return false;
+        bit.resize(strings.size());
+        for (int i = 0; i < strings.size(); ++i) {
+            if (strings.at(i) != '1' && strings.at(i) != '0') return false;
+            bit.setBit(i, (strings.at(i) == '1'));
+        }
+        return true;
+    }
 
     bool empty_check();
     bool specification_check();
     void save_all_data();
-    void QString_to_QBitArray(const QString &strings, QBitArray &bit_array);
+    void QStringHex_to_QBitArrayBin(const QString &strings, QBitArray &bit_array);
 
     QtMmlWidget *Math_ML;
 
@@ -67,6 +147,12 @@ private:
     QBitArray xorout_binary; //结果异或值的二进制表示
     bool refin_flag; //输入数据反转
     bool refout_flag; //输出数据反转
+
+#ifdef USING_XML_RECORD_TEXT
+    typedef QVector<crc_info> VectorInfo;
+    VectorInfo all_data;
+    qint16 current_id;
+#endif
 };
 
 #endif // CRC_H
