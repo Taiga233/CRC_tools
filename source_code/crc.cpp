@@ -19,6 +19,7 @@ crc::crc(QWidget *parent)
     ui->label_tips->setSizePolicy(size_policy);
     ui->label_tips->hide();
     ui->comboBox->setCurrentIndex(-1);
+    ui->pushButton_file->hide();
 
     input_file = new std::vector<bool>;
     Math_ML = new QtMmlWidget;
@@ -31,6 +32,8 @@ crc::crc(QWidget *parent)
 #endif
 #ifdef USING_XML_RECORD_TEXT
     current_id = -1;
+    file_ready = false;
+//    ui->pushButton_file->show(); //暂时还没写
     all_data.clear();
     init_xml(); //读取xml文件里面的值用于comboBox的显示
 #endif
@@ -349,7 +352,6 @@ void crc::init_xml()
         if (fix_width < it->getParameter_name().length()) {
             fix_width = it->getParameter_name().length();
         }
-        qInfo() << "ID:" << it->at(0) << " width:" << it->getWidth();
         #ifdef DEBUG_INFO
         qInfo() << "combobox string:" << str_cbx;
         qInfo() << "ID:" << it->at(0) << " width:" << it->getWidth();
@@ -494,6 +496,22 @@ bool crc::crc_algorithm(const std::vector<bool> * const input, const uint &width
     Q_UNUSED(reverse_in);
     Q_UNUSED(reverse_out);
     Q_UNUSED(result);
+    //想法是把数据的中间当作一个处理区域，这个区域就是进行异或运算的，然后随着计算的进行向后移动
+    //step 1
+    //数据后面添0，和宽度一致
+    //step 2
+    //输入值按字节翻转，因为数据过大，可以考虑边计算边翻转，只要翻转的长度大于“处理区域”（用于计算）的长度就可以了。
+    //想法：可以按照宽度的整数倍来翻转字节。
+    //注意：翻转到最后，setp1数据后面添的0不需要翻转。
+    //step 3
+    //和初始值异或，如果全0就跳过。（这里先翻转后再初始异或）
+    //step 4
+    //找到数据的第一个1，从这里开始和多项式进行异或，然后循环找到数据的第一个1。
+    //这里当数据后面补充到处理区域，需要处理是否继续往后面翻转。
+    //step 5
+    //获得结果后，根据结果翻转flag，是否需要按每一位来翻转。
+    //step 6
+    //和结果异或值异或，如果全0就跳过。（这里先翻转后再异或）
     return true;
 }
 
@@ -524,7 +542,9 @@ bool crc::reverse_byte(QBitArray &data_array, int data_size)
     if (!~data_size) {
         data_size = data_array.size();
     }
+    #ifdef DEBUG_INFO
     qInfo() << "before:" << data_array;
+    #endif
     bool _a, _b;
     for (int i = 0; i < (data_size >> 3); i++) {
         for (int j = (i << 3), k = (i << 3) + 8 - 1; j < k; j++, k--) {
@@ -535,7 +555,9 @@ bool crc::reverse_byte(QBitArray &data_array, int data_size)
             data_array.setBit(k, _b);
         }
     }
+    #ifdef DEBUG_INFO
     qInfo() << "after:" << data_array;
+    #endif
     return true;
 }
 
@@ -624,12 +646,7 @@ void crc::save_all_data()
         QStringHex_to_QBitArrayBin(checked_xorout, xorout_binary);
         return ;
     }
-    refin_flag = all_data.at(current_id).getReverse_in();
-    refout_flag = all_data.at(current_id).getReverse_out();
-    width_crc = all_data.at(current_id).getWidth();
-    poly_binary = all_data.at(current_id).getPoly();
-    init_binary = all_data.at(current_id).getInit();
-    xorout_binary = all_data.at(current_id).getXorout();
+    save_data_from_all_data();
 #else
     refin_flag = ui->checkBox_refin->isChecked();
     refout_flag = ui->checkBox_refout->isChecked();
@@ -662,7 +679,24 @@ void crc::QStringHex_to_QBitArrayBin(const QString &strings, QBitArray &bit_arra
             temp_char <<= 1;
         }
     }
-//    qDebug() << "strings:" << strings << bit_array;
+    //    qDebug() << "strings:" << strings << bit_array;
+}
+
+void crc::show_result()
+{
+
+    QString binary_result;
+    for (int i = 0; i < crc_result.size(); i++) {
+        binary_result.append(crc_result.at(i) ? "1" : "0");
+    }
+    ui->lineEdit_result_bin->setText(binary_result);
+    QString hex_result(QString::number(binary_result.toUInt(Q_NULLPTR, 2), 16).toUpper());
+    for (int i = hex_result.size(); i < (binary_result.size() >> 2); i++) {
+        hex_result.prepend("0");
+    }
+    hex_result.prepend("0x");
+    ui->lineEdit_result_hex->setText(hex_result);
+    ui->label_tips->hide();
 }
 
 
@@ -931,10 +965,34 @@ void crc::on_pushButton_clear_clicked()
         ui->lineEdit_xorout->clear();
     }
     ui->label_tips->clear();
+#ifdef USING_XML_RECORD_TEXT
+    file_ready = false;
+#endif
 }
 
 void crc::on_pushButton_calculate_clicked()
 {
+#ifdef USING_XML_RECORD_TEXT
+    if (file_ready) {
+        file_ready = false;
+        //文件CRC校验专用：
+        if (!current_id) {
+            ui->label_tips->setText(QString("文件校验暂不支持自定义参数模型！"));
+            ui->label_tips->setHidden(false);
+            return ;
+        }
+        save_data_from_all_data();
+        bool crc_flag = crc_algorithm(input_file, width_crc, poly_binary, init_binary, xorout_binary, refin_flag, refout_flag, crc_result);
+        if (!crc_flag) {
+            ui->label_tips->setText(QString("CRC错误"));
+            ui->label_tips->setHidden(false);
+            return ;
+        }
+        //show result;
+        show_result();
+        return ;
+    }
+#endif
     ui->lineEdit_result_hex->clear();
     ui->lineEdit_result_bin->clear();
     checked_input.clear();
@@ -977,18 +1035,7 @@ void crc::on_pushButton_calculate_clicked()
     }
 
     //show result
-    QString binary_result;
-    for (int i = 0; i < crc_result.size(); i++) {
-        binary_result.append(crc_result.at(i) ? "1" : "0");
-    }
-    ui->lineEdit_result_bin->setText(binary_result);
-    QString hex_result(QString::number(binary_result.toUInt(Q_NULLPTR, 2), 16).toUpper());
-    for (int i = hex_result.size(); i < (binary_result.size() >> 2); i++) {
-        hex_result.prepend("0");
-    }
-    hex_result.prepend("0x");
-    ui->lineEdit_result_hex->setText(hex_result);
-    ui->label_tips->hide();
+    show_result();
 }
 
 void crc::on_pushButton_table_clicked()
@@ -1021,4 +1068,58 @@ void crc::on_pushButton_table_clicked()
     Math_ML->resize(QSize(1850, 830));
     Math_ML->move(QApplication::desktop()->screen()->rect().center() - Math_ML->rect().center());
     Math_ML->show();
+}
+
+void crc::on_pushButton_file_clicked()
+{
+#ifdef USING_XML_RECORD_TEXT
+    file_ready = false;
+    ui->textEdit->clear();
+    QString file_path = QFileDialog::getOpenFileName(this, QString("Open File"));
+    if (file_path.isEmpty()) return ;
+    QFile file(file_path);
+    if (!file.open(QIODevice::ReadOnly)) {
+        QMessageBox::information(Q_NULLPTR, "Error!", "File open failed.");
+        qDebug() << "error code:" << file.error() << "\terror string:" << file.errorString();
+        return ;
+    }
+    if (file.size() > (1024 * 1024 * 100)) {
+        QMessageBox::information(Q_NULLPTR, "Warning!", "File size great than 100MB!");
+        //暂时只计算100MB以下的文件
+        file.close();
+        return ;
+    }
+
+    if (file.size() > (3 * 1024 * 1024)) {
+        ui->textEdit->append(QString("<html><head/><body style=\" font-family:'Consolas'; font-size:30pt; color:red;\"><p>Please waiting...</p></body></html>"));
+    }
+    QCoreApplication::processEvents();
+    input_file->clear(); //clear the vector
+    QByteArray file_byte(file.readAll());
+    quint64 file_size = file_byte.size();
+    quint64 i_pos = 0;
+    char temp_char = 0;
+    QTime time;
+    time.start();
+    do {
+        temp_char = file_byte.at(i_pos);
+        for (qint8 j = 7; ~j; --j) {
+            input_file->push_back(((temp_char >> j) & 0x01));
+        }
+        ++i_pos;
+    } while (--file_size);
+    #ifdef DEBUG_INFO
+    qInfo() << "spending time:[" << time.elapsed() << "]ms";
+    qInfo() << "file path:" << file_path;
+    qInfo() << "file size:" << file.size();
+    qInfo() << "file_byte.size()" << file_byte.size();
+    qInfo() << "vector size:" << input_file->size();
+    #endif
+    if (file.size() > (3 * 1024 * 1024)) {
+        ui->textEdit->append(QString("spending time:[%1]ms").arg(time.elapsed()));
+    }
+    ui->textEdit->append(QString("Read file completely."));
+    ui->textEdit->append(QString("if you don't want to calculate, click \"clear input data\" button."));
+    file_ready = true;
+#endif
 }

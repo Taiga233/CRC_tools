@@ -35,7 +35,7 @@ public:
     QLabel *label;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_2;
-    QPushButton *pushButton;
+    QPushButton *pushButton_file;
     QTextEdit *textEdit;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_3;
@@ -104,15 +104,16 @@ public:
 
         horizontalLayout_5->addWidget(label_2);
 
-        pushButton = new QPushButton(crc);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton_file = new QPushButton(crc);
+        pushButton_file->setObjectName(QStringLiteral("pushButton_file"));
         QFont font3;
         font3.setFamily(QString::fromUtf8("\345\256\213\344\275\223"));
-        pushButton->setFont(font3);
+        pushButton_file->setFont(font3);
 
-        horizontalLayout_5->addWidget(pushButton);
+        horizontalLayout_5->addWidget(pushButton_file);
 
         horizontalLayout_5->setStretch(0, 3);
+        horizontalLayout_5->setStretch(1, 1);
 
         verticalLayout_2->addLayout(horizontalLayout_5);
 
@@ -363,7 +364,7 @@ public:
         crc->setWindowTitle(QApplication::translate("crc", "crc", 0));
         label->setText(QApplication::translate("crc", "CRC\357\274\210\345\276\252\347\216\257\345\206\227\344\275\231\346\240\241\351\252\214\357\274\211\350\256\241\347\256\227\345\267\245\345\205\267", 0));
         label_2->setText(QApplication::translate("crc", "\351\234\200\350\246\201\346\240\241\351\252\214\347\232\204\346\225\260\346\215\256\357\274\210\345\215\201\345\205\255\350\277\233\345\210\266\357\274\214\344\276\213\345\246\202: AF1234 \357\274\211\357\274\232", 0));
-        pushButton->setText(QApplication::translate("crc", "\351\200\211\346\213\251\346\226\207\344\273\266", 0));
+        pushButton_file->setText(QApplication::translate("crc", "\351\200\211\346\213\251\346\226\207\344\273\266", 0));
         textEdit->setDocumentTitle(QString());
         label_3->setText(QApplication::translate("crc", "\345\217\202\346\225\260\346\250\241\345\236\213 NAME:", 0));
         comboBox->clear();

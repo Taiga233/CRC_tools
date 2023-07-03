@@ -5,7 +5,9 @@
 #include <QBitArray>
 #include <QDesktopWidget>
 #include <QMessageBox>
-//#include <QDomDocument>
+#include <QFileDialog>
+#include <QTime>
+//#include <QDomDocument> //别的头文件里面有了
 
 #include <vector>
 
@@ -118,6 +120,7 @@ public:
     bool specification_check();
     void save_all_data();
     void QStringHex_to_QBitArrayBin(const QString &strings, QBitArray &bit_array);
+    void show_result();
 
     QtMmlWidget *Math_ML;
 
@@ -129,6 +132,8 @@ private slots:
     void on_pushButton_calculate_clicked();
 
     void on_pushButton_table_clicked();
+
+    void on_pushButton_file_clicked();
 
 private:
     Ui::crc *ui;
@@ -152,6 +157,16 @@ private:
     typedef QVector<crc_info> VectorInfo;
     VectorInfo all_data;
     qint16 current_id;
+    void save_data_from_all_data()
+    {
+        refin_flag = all_data.at(current_id).getReverse_in();
+        refout_flag = all_data.at(current_id).getReverse_out();
+        width_crc = all_data.at(current_id).getWidth();
+        poly_binary = all_data.at(current_id).getPoly();
+        init_binary = all_data.at(current_id).getInit();
+        xorout_binary = all_data.at(current_id).getXorout();
+    }
+    bool file_ready; //校验文件的标志
 #endif
 };
 

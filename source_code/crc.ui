@@ -39,7 +39,7 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="3,0">
+    <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="3,1">
      <item>
       <widget class="QLabel" name="label_2">
        <property name="font">
@@ -54,7 +54,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="pushButton_file">
        <property name="font">
         <font>
          <family>宋体</family>

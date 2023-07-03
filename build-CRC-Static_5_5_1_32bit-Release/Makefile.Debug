@@ -233,6 +233,12 @@ debug/moc_crc.cpp: C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-sta
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QMessageBox \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qmessagebox.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qdialog.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFileDialog \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qfiledialog.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdir.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileinfo.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QTime \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdatetime.h \
 		../source_code/libraries/qtmmlwidget.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFrame \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qframe.h \
@@ -251,10 +257,7 @@ debug/moc_crc.cpp: C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-sta
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtextcodec.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qendian.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlibraryinfo.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdatetime.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbuffer.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdir.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileinfo.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdiriterator.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileselector.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QObject \
@@ -482,6 +485,12 @@ debug/main.o: ../source_code/main.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QMessageBox \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qmessagebox.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qdialog.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFileDialog \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qfiledialog.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdir.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileinfo.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QTime \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdatetime.h \
 		../source_code/libraries/qtmmlwidget.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFrame \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qframe.h \
@@ -500,10 +509,7 @@ debug/main.o: ../source_code/main.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtextcodec.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qendian.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlibraryinfo.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdatetime.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbuffer.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdir.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileinfo.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdiriterator.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileselector.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QObject \
@@ -714,6 +720,12 @@ debug/crc.o: ../source_code/crc.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QMessageBox \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qmessagebox.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qdialog.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFileDialog \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qfiledialog.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdir.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileinfo.h \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QTime \
+		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdatetime.h \
 		../source_code/libraries/qtmmlwidget.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/QFrame \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtWidgets/qframe.h \
@@ -732,10 +744,7 @@ debug/crc.o: ../source_code/crc.cpp ../source_code/crc.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qtextcodec.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qendian.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qlibraryinfo.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdatetime.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qbuffer.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdir.h \
-		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileinfo.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qdiriterator.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/qfileselector.h \
 		C:/Software/Qt_5.5.1/static_environment/5.5.1-mingw32-rel-static/include/QtCore/QObject \
